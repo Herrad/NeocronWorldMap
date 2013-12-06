@@ -1,3 +1,4 @@
 ﻿body { font-family: arial;}
 
-.world-grid{ background: url("/Assets/Images/worldmap.jpg") no-repeat;min-width: 1000px;height: 680px;}
+.world-grid{ background: url("/Assets/Images/worldmap.jpg") no-repeat;min-width: 961px;height: 672px;}
+    .world-grid .hover td:hover { background: rgba(0, 0, 255, 0.5);}

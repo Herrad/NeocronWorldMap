@@ -11,5 +11,23 @@
 <h2>Neocron World Map</h2>
 
 <table class="world-grid">
-    
+    <tr class="no-hover">
+        @for(var i = 0; i < 17; i++)
+        {
+            <td>
+            
+            </td>
+        }
+    </tr>
+    @for (var y = 0; y < 11; y++ )
+    {
+        <tr class="hover">
+            @for (var i = 0; i < 17; i++)
+            {
+                <td>
+            
+                </td>
+            }
+        </tr>
+    }
 </table>
