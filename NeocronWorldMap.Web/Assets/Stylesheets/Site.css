@@ -1,1 +1,3 @@
 ﻿body { font-family: arial;}
+
+.world-grid{ background: url("/Assets/Images/worldmap.jpg") no-repeat;min-width: 1000px;height: 680px;}
