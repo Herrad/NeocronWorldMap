@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using NeocronWorldMap.Web.Domain;
 using NeocronWorldMap.Web.ViewModelBuilders;
 
 namespace Test.NeocronWorldMap.Web.ViewModelBuilders
@@ -7,13 +8,20 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
     public class TestZoneDetailsViewModelBuilder
     {
         [Test]
-        public void Builds_a_ZoneDetailsViewModel()
+        public void Sets_basic_information_on_ZoneDetailsViewModel()
         {
+            const int xCoordinate = 8;
+            const char yCoordinate = 'd';
+
             var zoneDetailsViewModelBuilder = new ZoneDetailsViewModelBuilder();
 
-            var zoneDetailsViewModel = zoneDetailsViewModelBuilder.Build(null);
+            var neocronZone = new NeocronZone(xCoordinate, yCoordinate);
+
+            var zoneDetailsViewModel = zoneDetailsViewModelBuilder.Build(neocronZone);
 
             Assert.That(zoneDetailsViewModel, Is.Not.Null);
+            Assert.That(zoneDetailsViewModel.XCoordinate, Is.EqualTo(xCoordinate));
+            Assert.That(zoneDetailsViewModel.YCoordinate, Is.EqualTo(yCoordinate));
         }
     }
 }

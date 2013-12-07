@@ -7,7 +7,7 @@ namespace NeocronWorldMap.Web.ViewModelBuilders
     {
         public ZoneDetailsViewModel Build(IHaveZoneDetails zone)
         {
-            return new ZoneDetailsViewModel();
+            return new ZoneDetailsViewModel(zone.XCoordinate, zone.YCoordinate);
         }
     }
 }
