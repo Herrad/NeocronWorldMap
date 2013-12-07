@@ -2,14 +2,6 @@
 {
     public interface IActionZoneDetailsRequests
     {
-        void Execute(char xCoordinate, int yCoordinate, ZoneController zoneController);
-    }
-
-    public class DetailsAction : IActionZoneDetailsRequests
-    {
-        public void Execute(char xCoordinate, int yCoordinate, ZoneController zoneController)
-        {
-            throw new System.NotImplementedException();
-        }
+        void Execute(char xCoordinate, int yCoordinate, IRenderViews viewRenderer);
     }
 }

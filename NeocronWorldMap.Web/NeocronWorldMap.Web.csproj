@@ -111,16 +111,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Actions\ZoneDetailsAction.cs" />
     <Compile Include="Controllers\Actions\IActionZoneDetailsRequests.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IRenderViews.cs" />
     <Compile Include="Controllers\ZoneController.cs" />
+    <Compile Include="Domain\IHaveZoneDetails.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IGetZoneDetails.cs" />
     <Compile Include="StructureMap\DependencyInjector.cs" />
     <Compile Include="StructureMap\StructureMapControllerActivator.cs" />
     <Compile Include="StructureMap\StructureMapDependencyResolver.cs" />
+    <Compile Include="ViewModelBuilders\IBuildZoneDetailsViewModels.cs" />
+    <Compile Include="ViewModels\ZoneDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />

@@ -3,7 +3,7 @@ using NeocronWorldMap.Web.Controllers.Actions;
 
 namespace NeocronWorldMap.Web.Controllers
 {
-    public class ZoneController : Controller
+    public class ZoneController : Controller, IRenderViews
     {
         private readonly IActionZoneDetailsRequests _detailsAction;
 
@@ -17,6 +17,11 @@ namespace NeocronWorldMap.Web.Controllers
             _detailsAction.Execute(xCoordinate, yCoordinate, this);
 
             return View();
+        }
+
+        public void SetViewModel(object viewModel)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
