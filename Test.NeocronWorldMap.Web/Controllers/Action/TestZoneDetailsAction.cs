@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using NeocronWorldMap.Web.Controllers;
 using NeocronWorldMap.Web.Controllers.Actions;
+using NeocronWorldMap.Web.Domain;
 using NeocronWorldMap.Web.Services;
 using NeocronWorldMap.Web.ViewModelBuilders;
 using NeocronWorldMap.Web.ViewModels;
@@ -25,16 +26,36 @@ namespace Test.NeocronWorldMap.Web.Controllers.Action
                 .Stub(x => x.Build(null))
                 .Return(zoneDetailsViewModel);
 
-            var detailsAction = new ZoneDetailsAction(viewModelBuilder);
+            var zoneService = MockRepository.GenerateStub<ICreateZonesFromCoordinates>();
+            
+            var detailsAction = new ZoneDetailsAction(zoneService, viewModelBuilder);
 
-            detailsAction.Execute('x', 99, this);
+            detailsAction.Execute(99, 'x', this);
 
             Assert.That(_viewModelThatWasSet, Is.EqualTo(zoneDetailsViewModel));
         }
 
+        [Test]
+        public void Gives_Zone_from_service_to_ViewModelBuilder()
+        {
+            var zoneDetails = MockRepository.GenerateStub<IHaveZoneDetails>();
+
+            var service = MockRepository.GenerateStub<ICreateZonesFromCoordinates>();
+            service
+                .Stub(x => x.GetZoneDetailsAt(99, 'x'))
+                .Return(zoneDetails);
+
+            var viewModelBuilder = MockRepository.GenerateMock<IBuildZoneDetailsViewModels>();
+
+            var detailsAction = new ZoneDetailsAction(service, viewModelBuilder);
+
+            detailsAction.Execute(99, 'x', this);
+
+            viewModelBuilder.AssertWasCalled(x => x.Build(zoneDetails), c => c.Repeat.Once());
+        }
+
         public void SetViewModel(object viewModel)
         {
-            Assert.That(viewModel, Is.TypeOf<ZoneDetailsViewModel>());
             _viewModelThatWasSet = (ZoneDetailsViewModel) viewModel;
         }
     }

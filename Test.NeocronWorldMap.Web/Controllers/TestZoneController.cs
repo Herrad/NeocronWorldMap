@@ -15,7 +15,7 @@ namespace Test.NeocronWorldMap.Web.Controllers
 
             var controller = new ZoneController(detailsAction);
 
-            var viewResult = controller.Details('x', 99);
+            var viewResult = controller.Details(99, 'x');
 
             Assert.That(viewResult, Is.Not.Null);
             Assert.That(viewResult.ViewName, Is.Empty);
@@ -28,10 +28,10 @@ namespace Test.NeocronWorldMap.Web.Controllers
 
             var zoneController = new ZoneController(detailsAction);
 
-            zoneController.Details('x', 99);
+            zoneController.Details(99, 'x');
 
             detailsAction
-                .AssertWasCalled(x => x.Execute('x', 99, zoneController));
+                .AssertWasCalled(x => x.Execute(99, 'x', zoneController));
         }
     }
 }

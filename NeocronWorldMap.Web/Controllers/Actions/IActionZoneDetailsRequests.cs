@@ -2,6 +2,6 @@
 {
     public interface IActionZoneDetailsRequests
     {
-        void Execute(char xCoordinate, int yCoordinate, IRenderViews viewRenderer);
+        void Execute(int xCoordinate, char yCoordinate, IRenderViews viewRenderer);
     }
 }
