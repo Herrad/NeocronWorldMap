@@ -7,7 +7,7 @@ namespace NeocronWorldMap.Web.Controllers
         //
         // GET: /Home/
 
-        public ActionResult Index()
+        public ViewResult Index()
         {
             return View();
         }
