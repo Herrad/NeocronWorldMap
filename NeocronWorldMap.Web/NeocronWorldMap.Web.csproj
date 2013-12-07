@@ -128,6 +128,7 @@
     <Compile Include="StructureMap\StructureMapControllerActivator.cs" />
     <Compile Include="StructureMap\StructureMapDependencyResolver.cs" />
     <Compile Include="ViewModelBuilders\IBuildZoneDetailsViewModels.cs" />
+    <Compile Include="ViewModelBuilders\ZoneDetailsViewModelBuilder.cs" />
     <Compile Include="ViewModels\ZoneDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
