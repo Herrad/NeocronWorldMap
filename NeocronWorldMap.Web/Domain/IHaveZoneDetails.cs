@@ -2,5 +2,7 @@
 {
     public interface IHaveZoneDetails
     {
+        int XCoordinate { get; }
+        char YCoordinate { get; }
     }
 }
