@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 using NeocronWorldMap.Web.App_Start;
+using NeocronWorldMap.Web.StructureMap;
 
 namespace NeocronWorldMap.Web
 {
@@ -12,6 +13,8 @@ namespace NeocronWorldMap.Web
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+
+            DependencyInjector.SetUpIoC();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

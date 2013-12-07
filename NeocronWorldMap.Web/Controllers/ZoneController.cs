@@ -6,6 +6,7 @@ namespace NeocronWorldMap.Web.Controllers
     public class ZoneController : Controller, IRenderViews
     {
         private readonly IActionZoneDetailsRequests _detailsAction;
+        private object _viewModel;
 
         public ZoneController(IActionZoneDetailsRequests detailsAction)
         {
@@ -16,12 +17,12 @@ namespace NeocronWorldMap.Web.Controllers
         {
             _detailsAction.Execute(xCoordinate, yCoordinate, this);
 
-            return View();
+            return View(_viewModel);
         }
 
         public void SetViewModel(object viewModel)
         {
-            throw new System.NotImplementedException();
+            _viewModel = viewModel;
         }
     }
 }

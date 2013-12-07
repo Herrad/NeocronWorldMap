@@ -1,8 +1,11 @@
-﻿@model dynamic
+﻿@model NeocronWorldMap.Web.ViewModels.ZoneDetailsViewModel
 
 @{
     ViewBag.Title = "Zone Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section Header
+{}
 
 <h2>Zone Details</h2>
+<span>This is zone @Model.YCoordinate@Model.XCoordinate</span>

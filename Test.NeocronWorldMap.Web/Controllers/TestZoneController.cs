@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using NeocronWorldMap.Web.Controllers;
 using NeocronWorldMap.Web.Controllers.Actions;
+using NeocronWorldMap.Web.ViewModels;
 using Rhino.Mocks;
 
 namespace Test.NeocronWorldMap.Web.Controllers
@@ -19,6 +20,23 @@ namespace Test.NeocronWorldMap.Web.Controllers
 
             Assert.That(viewResult, Is.Not.Null);
             Assert.That(viewResult.ViewName, Is.Empty);
+        }
+
+        [Test]
+        public void Gives_set_ViewModel_to_View()
+        {
+            var viewModel = new ZoneDetailsViewModel(0, 'x');
+
+            var detailsAction = MockRepository.GenerateStub<IActionZoneDetailsRequests>();
+
+            var controller = new ZoneController(detailsAction);
+
+            controller.SetViewModel(viewModel);
+
+            var viewResult = controller.Details(0, 'x');
+
+            Assert.That(viewResult.Model, Is.Not.Null);
+            Assert.That(viewResult.Model, Is.EqualTo(viewModel));
         }
 
         [Test]
