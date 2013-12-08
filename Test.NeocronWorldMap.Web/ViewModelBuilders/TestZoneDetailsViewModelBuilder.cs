@@ -1,6 +1,8 @@
 ﻿using NUnit.Framework;
 using NeocronWorldMap.Web.Domain;
 using NeocronWorldMap.Web.ViewModelBuilders;
+using NeocronWorldMap.Web.ViewModels;
+using Rhino.Mocks;
 
 namespace Test.NeocronWorldMap.Web.ViewModelBuilders
 {
@@ -13,7 +15,9 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
             const string xCoordinate = "08";
             const char yCoordinate = 'd';
 
-            var zoneDetailsViewModelBuilder = new ZoneDetailsViewModelBuilder();
+            var outpostViewModelBuilder = MockRepository.GenerateStub<IBuildOutpostViewModels>();
+
+            var zoneDetailsViewModelBuilder = new ZoneDetailsViewModelBuilder(outpostViewModelBuilder);
 
             var coordinates = new Coordinates(xCoordinate, yCoordinate);
 
@@ -24,6 +28,30 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
             Assert.That(zoneDetailsViewModel, Is.Not.Null);
             Assert.That(zoneDetailsViewModel.XCoordinate, Is.EqualTo(xCoordinate));
             Assert.That(zoneDetailsViewModel.YCoordinate, Is.EqualTo(yCoordinate));
+        }
+
+        [Test]
+        public void Sets_OutpostViewModel_using_builder()
+        {
+            const string xCoordinate = "08";
+            const char yCoordinate = 'd';
+
+            var coordinates = new Coordinates(xCoordinate, yCoordinate);
+            var outpost = new Outpost("foo");
+            var neocronZone = new NeocronZone(coordinates, outpost);
+            var outpostViewModel = new OutpostViewModel("foo");
+
+            var outpostViewModelBuilder = MockRepository.GenerateStub<IBuildOutpostViewModels>();
+            outpostViewModelBuilder
+                .Stub(x => x.Build(neocronZone.Outpost))
+                .Return(outpostViewModel);
+
+            var zoneDetailsViewModelBuilder = new ZoneDetailsViewModelBuilder(outpostViewModelBuilder);
+
+
+            var zoneDetailsViewModel = zoneDetailsViewModelBuilder.Build(neocronZone);
+
+            Assert.That(zoneDetailsViewModel.OutpostViewModel, Is.EqualTo(outpostViewModel));
         }
     }
 }

@@ -152,7 +152,9 @@
     <Compile Include="StructureMap\StructureMapDependencyResolver.cs" />
     <Compile Include="ViewModelBuilders\GridViewModelBuilder.cs" />
     <Compile Include="ViewModelBuilders\IBuildGridViewModels.cs" />
+    <Compile Include="ViewModelBuilders\IBuildOutpostViewModels.cs" />
     <Compile Include="ViewModelBuilders\IBuildZoneDetailsViewModels.cs" />
+    <Compile Include="ViewModelBuilders\OutpostViewModelBuilder.cs" />
     <Compile Include="ViewModelBuilders\ZoneDetailsViewModelBuilder.cs" />
     <Compile Include="ViewModels\GridViewModel.cs" />
     <Compile Include="ViewModels\OutpostViewModel.cs" />
