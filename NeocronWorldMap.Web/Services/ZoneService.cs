@@ -4,14 +4,17 @@ namespace NeocronWorldMap.Web.Services
 {
     public class ZoneService : ICreateZonesFromCoordinates
     {
-        public ZoneService(IRetrieveOutpostInformation outpostRepository)
+        private readonly IRetrieveOutpostInformation _outpostService;
+
+        public ZoneService(IRetrieveOutpostInformation outpostService)
         {
-            
+            _outpostService = outpostService;
         }
 
-        public IHaveZoneDetails GetZoneDetailsAt(string xCoordinate, char yCoordinate)
+        public IHaveZoneDetails GetZoneDetailsAt(Coordinates coordinates)
         {
-            return new NeocronZone(xCoordinate, yCoordinate, new Outpost("foo"));
+            var outpostData = _outpostService.GetOutpostDataAt(coordinates);
+            return new NeocronZone(coordinates, outpostData);
         }
     }
 }

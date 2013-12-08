@@ -2,15 +2,13 @@
 {
     public class NeocronZone : IHaveZoneDetails
     {
-        public NeocronZone(string xCoordinate, char yCoordinate, IHaveOutpostData outpost)
+        public NeocronZone(Coordinates coordinates, IHaveOutpostData outpost)
         {
-            XCoordinate = xCoordinate;
-            YCoordinate = yCoordinate;
+            Coordinates = coordinates;
             Outpost = outpost;
         }
 
-        public string XCoordinate { get; private set; }
-        public char YCoordinate { get; private set; }
+        public Coordinates Coordinates { get; private set; }
         public IHaveOutpostData Outpost { get; private set; }
     }
 }

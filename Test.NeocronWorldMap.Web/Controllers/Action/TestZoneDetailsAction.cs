@@ -19,7 +19,7 @@ namespace Test.NeocronWorldMap.Web.Controllers.Action
         {
             _viewModelThatWasSet = null;
 
-            var zoneDetailsViewModel = new ZoneDetailsViewModel("99", 'x');
+            var zoneDetailsViewModel = new ZoneDetailsViewModel("99", 'x', null);
 
             var viewModelBuilder = MockRepository.GenerateStub<IBuildZoneDetailsViewModels>();
             viewModelBuilder
@@ -42,7 +42,7 @@ namespace Test.NeocronWorldMap.Web.Controllers.Action
 
             var service = MockRepository.GenerateStub<ICreateZonesFromCoordinates>();
             service
-                .Stub(x => x.GetZoneDetailsAt("99", 'x'))
+                .Stub(x => x.GetZoneDetailsAt(new Coordinates("99", 'x')))
                 .Return(zoneDetails);
 
             var viewModelBuilder = MockRepository.GenerateMock<IBuildZoneDetailsViewModels>();

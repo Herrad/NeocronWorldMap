@@ -143,6 +143,7 @@
     <Compile Include="Services\IKnowAboutOutposts.cs" />
     <Compile Include="Services\IRetrieveOutpostInformation.cs" />
     <Compile Include="Services\ISessionTokenFactory.cs" />
+    <Compile Include="Services\OutpostLocations.cs" />
     <Compile Include="Services\OutpostService.cs" />
     <Compile Include="Services\SessionTokenFactory.cs" />
     <Compile Include="Services\ZoneService.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="ViewModelBuilders\IBuildZoneDetailsViewModels.cs" />
     <Compile Include="ViewModelBuilders\ZoneDetailsViewModelBuilder.cs" />
     <Compile Include="ViewModels\GridViewModel.cs" />
+    <Compile Include="ViewModels\OutpostViewModel.cs" />
     <Compile Include="ViewModels\ZoneDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

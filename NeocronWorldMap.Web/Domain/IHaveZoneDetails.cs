@@ -2,8 +2,7 @@
 {
     public interface IHaveZoneDetails
     {
-        string XCoordinate { get; }
-        char YCoordinate { get; }
+        Coordinates Coordinates { get; }
         IHaveOutpostData Outpost { get; }
     }
 }

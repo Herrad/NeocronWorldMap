@@ -1,4 +1,5 @@
-﻿using NeocronWorldMap.Web.Services;
+﻿using NeocronWorldMap.Web.Domain;
+using NeocronWorldMap.Web.Services;
 using NeocronWorldMap.Web.ViewModelBuilders;
 
 namespace NeocronWorldMap.Web.Controllers.Actions
@@ -16,7 +17,9 @@ namespace NeocronWorldMap.Web.Controllers.Actions
 
         public void Execute(string xCoordinate, char yCoordinate, IRenderViews viewRenderer)
         {
-            var zoneDetails = _zoneService.GetZoneDetailsAt(xCoordinate, yCoordinate);
+            var coordinates = new Coordinates(xCoordinate, yCoordinate);
+
+            var zoneDetails = _zoneService.GetZoneDetailsAt(coordinates);
 
             var zoneDetailsViewModel = _zoneDetailsViewModelBuilder.Build(zoneDetails);
 
