@@ -1,7 +1,15 @@
-﻿body { font-family: arial;background: #303030;color: white;margin: 0;}
+﻿body { font-family: sans-serif;background: #303030;color: white;margin: 0;}
 h2{ margin: 0;}
-#content{ margin-left: auto;margin-right: auto;max-width: 1280px;background: black;padding-top: 15px;height: 1000px;}
 
-.world-grid{ background: url("/Assets/Images/worldmap.jpg") no-repeat;min-width: 962px;height: 673px;margin-left: auto;margin-right: auto;}
+#content{ margin-left: auto;margin-right: auto;max-width: 962px;height: 1000px;background: black;border-left: #957C03 2px solid;border-right: #957C03 2px solid;}
+
+.page-title {padding: 10px 0 20px 15px; }
+
+.world-grid{ min-width: 962px;height: 673px;margin-left: auto;margin-right: auto;background: url("/Assets/Images/worldmap.jpg") no-repeat;border-top: #957C03 2px solid;border-bottom: #957C03 2px solid;}
     .world-grid .hover td:hover {padding: 0;background: #ddd;background: rgba(224, 224, 224, 0.5);border: 1px dashed #ddd;cursor: pointer;}
         .world-grid .hover td a { font-size: 0.5em;}
+
+
+.zone-detail { margin: 15px;padding-left: 15px;background: #303032 no-repeat;border: #957C03 1px solid;width: 300px;}
+.zone-detail div { padding-bottom: 10px;}
+    .zone-detail h2{margin: 10px 10px 10px 0;border-bottom: #957C03 2px solid;}
