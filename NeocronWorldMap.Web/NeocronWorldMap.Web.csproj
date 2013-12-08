@@ -111,7 +111,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Actions\IActionIndexRequests.cs" />
     <Compile Include="Controllers\Actions\IActionZoneDetailsRequests.cs" />
+    <Compile Include="Controllers\Actions\IndexAction.cs" />
     <Compile Include="Controllers\Actions\ZoneDetailsAction.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IRenderViews.cs" />
@@ -127,8 +129,11 @@
     <Compile Include="StructureMap\DependencyInjector.cs" />
     <Compile Include="StructureMap\StructureMapControllerActivator.cs" />
     <Compile Include="StructureMap\StructureMapDependencyResolver.cs" />
+    <Compile Include="ViewModelBuilders\GridViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\IBuildGridViewModels.cs" />
     <Compile Include="ViewModelBuilders\IBuildZoneDetailsViewModels.cs" />
     <Compile Include="ViewModelBuilders\ZoneDetailsViewModelBuilder.cs" />
+    <Compile Include="ViewModels\GridViewModel.cs" />
     <Compile Include="ViewModels\ZoneDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

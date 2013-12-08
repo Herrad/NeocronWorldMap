@@ -46,11 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Action\TestIndexAction.cs" />
     <Compile Include="Controllers\Action\TestZoneDetailsAction.cs" />
     <Compile Include="Controllers\TestHomeController.cs" />
     <Compile Include="Controllers\TestZoneController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\TestZoneService.cs" />
+    <Compile Include="ViewModelBuilders\TestGridViewModelBuilder.cs" />
     <Compile Include="ViewModelBuilders\TestZoneDetailsViewModelBuilder.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿@model dynamic
+﻿@model NeocronWorldMap.Web.ViewModels.GridViewModel
 
 @{
     ViewBag.Title = "Neocron World Map";
@@ -13,7 +13,7 @@
 <h2>Neocron World Map</h2>
 
 <table class="world-grid">
-    <tr class="no-hover">
+    <tr>
         @for(var i = 0; i < 17; i++)
         {
             <td>
@@ -21,13 +21,13 @@
             </td>
         }
     </tr>
-    @for (var y = 0; y < 11; y++ )
+    @foreach (var ycoordinate in @Model.YAxis)
     {
         <tr class="hover">
-            @for (var i = 1; i <= 17; i++)
+            @for (var xcoordinate = 1; xcoordinate <= 17; xcoordinate++)
             {
-                <td data-xcoordinate="@i" data-ycoordinate="a">
-                    <a href="/zone/details?xCoordinate=@i&yCoordinate=a">click meee!</a>
+                <td data-xcoordinate="@xcoordinate" data-ycoordinate="@ycoordinate">
+                    <a href="/zone/details?xCoordinate=@xcoordinate&yCoordinate=@ycoordinate">click meee!</a>
                 </td>
             }
         </tr>
