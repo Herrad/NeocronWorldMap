@@ -14,7 +14,7 @@ namespace NeocronWorldMap.Web.Controllers.Actions
             _zoneDetailsViewModelBuilder = zoneDetailsViewModelBuilder;
         }
 
-        public void Execute(int xCoordinate, char yCoordinate, IRenderViews viewRenderer)
+        public void Execute(string xCoordinate, char yCoordinate, IRenderViews viewRenderer)
         {
             var zoneDetails = _zoneService.GetZoneDetailsAt(xCoordinate, yCoordinate);
 

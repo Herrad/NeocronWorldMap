@@ -13,7 +13,7 @@ namespace Test.NeocronWorldMap.Web.Controllers.Action
         [Test]
         public void Sets_view_model_to_result_of_GridViewModelBuilder()
         {
-            var gridViewModel = new GridViewModel(null);
+            var gridViewModel = new GridViewModel(null, null);
 
             var viewModelBuilder = MockRepository.GenerateStub<IBuildGridViewModels>();
             viewModelBuilder

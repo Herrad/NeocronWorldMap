@@ -19,7 +19,7 @@ namespace Test.NeocronWorldMap.Web.Controllers.Action
         {
             _viewModelThatWasSet = null;
 
-            var zoneDetailsViewModel = new ZoneDetailsViewModel(99, 'x');
+            var zoneDetailsViewModel = new ZoneDetailsViewModel("99", 'x');
 
             var viewModelBuilder = MockRepository.GenerateStub<IBuildZoneDetailsViewModels>();
             viewModelBuilder
@@ -30,7 +30,7 @@ namespace Test.NeocronWorldMap.Web.Controllers.Action
             
             var detailsAction = new ZoneDetailsAction(zoneService, viewModelBuilder);
 
-            detailsAction.Execute(99, 'x', this);
+            detailsAction.Execute("99", 'x', this);
 
             Assert.That(_viewModelThatWasSet, Is.EqualTo(zoneDetailsViewModel));
         }
@@ -42,14 +42,14 @@ namespace Test.NeocronWorldMap.Web.Controllers.Action
 
             var service = MockRepository.GenerateStub<ICreateZonesFromCoordinates>();
             service
-                .Stub(x => x.GetZoneDetailsAt(99, 'x'))
+                .Stub(x => x.GetZoneDetailsAt("99", 'x'))
                 .Return(zoneDetails);
 
             var viewModelBuilder = MockRepository.GenerateMock<IBuildZoneDetailsViewModels>();
 
             var detailsAction = new ZoneDetailsAction(service, viewModelBuilder);
 
-            detailsAction.Execute(99, 'x', this);
+            detailsAction.Execute("99", 'x', this);
 
             viewModelBuilder.AssertWasCalled(x => x.Build(zoneDetails), c => c.Repeat.Once());
         }

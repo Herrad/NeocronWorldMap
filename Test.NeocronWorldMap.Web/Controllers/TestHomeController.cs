@@ -22,7 +22,7 @@ namespace Test.NeocronWorldMap.Web.Controllers
         [Test]
         public void Index_returns_view_with_ViewModel_set()
         {
-            var gridViewModel = new GridViewModel(null);
+            var gridViewModel = new GridViewModel(null, null);
             var controller = new HomeController(MockRepository.GenerateStub<IActionIndexRequests>());
 
             controller.SetViewModel(gridViewModel);

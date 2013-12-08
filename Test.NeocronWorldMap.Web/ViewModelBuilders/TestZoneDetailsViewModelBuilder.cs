@@ -10,7 +10,7 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
         [Test]
         public void Sets_basic_information_on_ZoneDetailsViewModel()
         {
-            const int xCoordinate = 8;
+            const string xCoordinate = "08";
             const char yCoordinate = 'd';
 
             var zoneDetailsViewModelBuilder = new ZoneDetailsViewModelBuilder();

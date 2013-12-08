@@ -9,7 +9,7 @@ namespace Test.NeocronWorldMap.Web.Services
         [Test]
         public void Should_return_some_basic_information_about_a_zone()
         {
-            const int xCoordinate = 5;
+            const string xCoordinate = "05";
             const char yCoordinate = 'f';
 
             var zoneService = new ZoneService();

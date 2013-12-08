@@ -13,7 +13,7 @@ namespace NeocronWorldMap.Web.Controllers
             _detailsAction = detailsAction;
         }
 
-        public ViewResult Details(int xCoordinate, char yCoordinate)
+        public ViewResult Details(string xCoordinate, char yCoordinate)
         {
             _detailsAction.Execute(xCoordinate, yCoordinate, this);
 
@@ -25,7 +25,7 @@ namespace NeocronWorldMap.Web.Controllers
             _viewModel = viewModel;
         }
 
-        public PartialViewResult PartialDetails(int xCoordinate, char yCoordinate)
+        public PartialViewResult PartialDetails(string xCoordinate, char yCoordinate)
         {
             var detailsResult = Details(xCoordinate, yCoordinate);
 

@@ -16,7 +16,7 @@ namespace Test.NeocronWorldMap.Web.Controllers
 
             var controller = new ZoneController(detailsAction);
 
-            var viewResult = controller.Details(99, 'x');
+            var viewResult = controller.Details("99", 'x');
 
             Assert.That(viewResult, Is.Not.Null);
             Assert.That(viewResult.ViewName, Is.Empty);
@@ -25,7 +25,7 @@ namespace Test.NeocronWorldMap.Web.Controllers
         [Test]
         public void Details_gives_set_ViewModel_to_View()
         {
-            var viewModel = new ZoneDetailsViewModel(0, 'x');
+            var viewModel = new ZoneDetailsViewModel("99", 'x');
 
             var detailsAction = MockRepository.GenerateStub<IActionZoneDetailsRequests>();
 
@@ -33,7 +33,7 @@ namespace Test.NeocronWorldMap.Web.Controllers
 
             controller.SetViewModel(viewModel);
 
-            var viewResult = controller.Details(0, 'x');
+            var viewResult = controller.Details("99", 'x');
 
             Assert.That(viewResult.Model, Is.Not.Null);
             Assert.That(viewResult.Model, Is.EqualTo(viewModel));
@@ -46,10 +46,10 @@ namespace Test.NeocronWorldMap.Web.Controllers
 
             var zoneController = new ZoneController(detailsAction);
 
-            zoneController.Details(99, 'x');
+            zoneController.Details("99", 'x');
 
             detailsAction
-                .AssertWasCalled(x => x.Execute(99, 'x', zoneController));
+                .AssertWasCalled(x => x.Execute("99", 'x', zoneController));
         }
 
         [Test]
@@ -59,7 +59,7 @@ namespace Test.NeocronWorldMap.Web.Controllers
 
             var controller = new ZoneController(detailsAction);
 
-            var viewResult = controller.PartialDetails(99, 'x');
+            var viewResult = controller.PartialDetails("99", 'x');
 
             Assert.That(viewResult, Is.Not.Null);
             Assert.That(viewResult.ViewName, Is.EqualTo("_PartialDetails"));
@@ -68,7 +68,7 @@ namespace Test.NeocronWorldMap.Web.Controllers
         [Test]
         public void PartialDetails_gives_set_ViewModel_to_View()
         {
-            var viewModel = new ZoneDetailsViewModel(0, 'x');
+            var viewModel = new ZoneDetailsViewModel("99", 'x');
 
             var detailsAction = MockRepository.GenerateStub<IActionZoneDetailsRequests>();
 
@@ -76,7 +76,7 @@ namespace Test.NeocronWorldMap.Web.Controllers
 
             controller.SetViewModel(viewModel);
 
-            var viewResult = controller.PartialDetails(0, 'x');
+            var viewResult = controller.PartialDetails("99", 'x');
 
             Assert.That(viewResult.Model, Is.Not.Null);
             Assert.That(viewResult.Model, Is.EqualTo(viewModel));
@@ -89,10 +89,10 @@ namespace Test.NeocronWorldMap.Web.Controllers
 
             var zoneController = new ZoneController(detailsAction);
 
-            zoneController.PartialDetails(99, 'x');
+            zoneController.PartialDetails("99", 'x');
 
             detailsAction
-                .AssertWasCalled(x => x.Execute(99, 'x', zoneController));
+                .AssertWasCalled(x => x.Execute("99", 'x', zoneController));
         }
     }
 }

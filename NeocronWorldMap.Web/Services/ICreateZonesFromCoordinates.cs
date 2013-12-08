@@ -4,6 +4,6 @@ namespace NeocronWorldMap.Web.Services
 {
     public interface ICreateZonesFromCoordinates
     {
-        IHaveZoneDetails GetZoneDetailsAt(int xCoordinate, char yCoordinate);
+        IHaveZoneDetails GetZoneDetailsAt(string xCoordinate, char yCoordinate);
     }
 }
