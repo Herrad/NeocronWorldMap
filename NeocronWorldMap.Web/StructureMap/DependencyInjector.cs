@@ -3,6 +3,7 @@ using NeocronWorldMap.Web.Controllers.Actions;
 using NeocronWorldMap.Web.Services;
 using NeocronWorldMap.Web.ViewModelBuilders;
 using StructureMap;
+using StructureMap.Pipeline;
 
 namespace NeocronWorldMap.Web.StructureMap
 {
@@ -23,6 +24,8 @@ namespace NeocronWorldMap.Web.StructureMap
                             scanner.AddAllTypesOf<IBuildGridViewModels>();
                             scanner.AddAllTypesOf<IRetrieveOutpostInformation>();
                         });
+
+                    x.For<OutpostLocations>().LifecycleIs(Lifecycles.GetLifecycle(InstanceScope.Singleton));
                 });
 
             DependencyResolver.SetResolver(new StructureMapDependencyResolver(ObjectFactory.Container));
