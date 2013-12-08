@@ -23,6 +23,7 @@ namespace NeocronWorldMap.Web.StructureMap
                             scanner.AddAllTypesOf<IActionIndexRequests>();
                             scanner.AddAllTypesOf<IBuildGridViewModels>();
                             scanner.AddAllTypesOf<IRetrieveOutpostInformation>();
+                            scanner.AddAllTypesOf<IBuildOutpostViewModels>();
                         });
 
                     x.For<OutpostLocations>().LifecycleIs(Lifecycles.GetLifecycle(InstanceScope.Singleton));

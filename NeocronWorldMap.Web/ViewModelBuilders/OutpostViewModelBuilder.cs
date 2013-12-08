@@ -7,7 +7,7 @@ namespace NeocronWorldMap.Web.ViewModelBuilders
     {
         public OutpostViewModel Build(IHaveOutpostData outpost)
         {
-            throw new System.NotImplementedException();
+            return new OutpostViewModel(outpost.Name);
         }
     }
 }

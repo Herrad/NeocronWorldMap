@@ -67,6 +67,7 @@
     <Compile Include="Services\TestOutpostService.cs" />
     <Compile Include="Services\TestZoneService.cs" />
     <Compile Include="ViewModelBuilders\TestGridViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\TestOutpostViewModelBuilder.cs" />
     <Compile Include="ViewModelBuilders\TestZoneDetailsViewModelBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
