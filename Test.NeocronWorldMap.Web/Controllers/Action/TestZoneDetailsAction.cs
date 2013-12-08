@@ -19,7 +19,7 @@ namespace Test.NeocronWorldMap.Web.Controllers.Action
         {
             _viewModelThatWasSet = null;
 
-            var zoneDetailsViewModel = new ZoneDetailsViewModel("99", 'x', null);
+            var zoneDetailsViewModel = new ZoneDetailsViewModel("99", 'x', null, null);
 
             var viewModelBuilder = MockRepository.GenerateStub<IBuildZoneDetailsViewModels>();
             viewModelBuilder

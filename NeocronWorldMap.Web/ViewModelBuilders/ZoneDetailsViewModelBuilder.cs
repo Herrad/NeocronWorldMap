@@ -16,7 +16,12 @@ namespace NeocronWorldMap.Web.ViewModelBuilders
         {
             var outpostViewModel = _outpostViewModelBuilder.Build(zone.Outpost);
 
-            return new ZoneDetailsViewModel(zone.Coordinates.XCoordinate, zone.Coordinates.YCoordinate, outpostViewModel);
+            return new ZoneDetailsViewModel(zone.Coordinates.XCoordinate, zone.Coordinates.YCoordinate, GetZoneName(zone), outpostViewModel);
+        }
+
+        private static string GetZoneName(IHaveZoneDetails zone)
+        {
+            return char.ToUpper(zone.Coordinates.YCoordinate) + zone.Coordinates.XCoordinate;
         }
     }
 }

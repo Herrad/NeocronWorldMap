@@ -14,6 +14,7 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
         {
             const string xCoordinate = "08";
             const char yCoordinate = 'd';
+            var expectedZoneName = char.ToUpper(yCoordinate) + xCoordinate;
 
             var outpostViewModelBuilder = MockRepository.GenerateStub<IBuildOutpostViewModels>();
 
@@ -28,6 +29,7 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
             Assert.That(zoneDetailsViewModel, Is.Not.Null);
             Assert.That(zoneDetailsViewModel.XCoordinate, Is.EqualTo(xCoordinate));
             Assert.That(zoneDetailsViewModel.YCoordinate, Is.EqualTo(yCoordinate));
+            Assert.That(zoneDetailsViewModel.ZoneName, Is.EqualTo(expectedZoneName));
         }
 
         [Test]
