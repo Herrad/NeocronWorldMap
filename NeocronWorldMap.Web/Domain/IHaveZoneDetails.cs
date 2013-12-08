@@ -4,5 +4,6 @@
     {
         string XCoordinate { get; }
         char YCoordinate { get; }
+        IHaveOutpostData Outpost { get; }
     }
 }

@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://backend.neocron-game.com/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://backend.neocron-game.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://backend.neocron-game.com/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="ChangePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="token" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChangePasswordResult" type="tns:BasicResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BasicResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RequestSucceeded" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExceptionMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOutposts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="token" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="server" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOutpostsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOutpostsResult" type="tns:OutpostListResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OutpostListResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BasicResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Outposts" type="tns:ArrayOfExtendedOutpost" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfExtendedOutpost">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ExtendedOutpost" nillable="true" type="tns:ExtendedOutpost" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExtendedOutpost">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Outpost">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Sector" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Faction" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Clan" type="tns:Clan" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Outpost">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnemyId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClanId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SecuritySetting" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastpayTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConquerTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Reward" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Clan">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShortName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AppId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OwnerCharId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClanMoney" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Settings" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="FactionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinSympathy" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClanFactionSympathy" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClanMission" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Locked" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetServerStatistics">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="token" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServerStatisticsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServerStatisticsResult" type="tns:ServerStatisticResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServerStatisticResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BasicResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ServerStatistics" type="tns:ArrayOfServerStatistic" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfServerStatistic">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ServerStatistic" nillable="true" type="tns:ServerStatistic" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ServerStatistic">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Players" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Latency" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsOnline" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPosts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="token" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="server" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="forum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPostsResult" type="tns:ExtendedForumResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExtendedForumResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BasicResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Server" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Posts" type="tns:ArrayOfExtendedBulletinBoard" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfExtendedBulletinBoard">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ExtendedBulletinBoard" nillable="true" type="tns:ExtendedBulletinBoard" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExtendedBulletinBoard">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BulletinBoard">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Author" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Server" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Board" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BulletinBoard">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Parent_Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="From_Char" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCharacters">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="token" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="server" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCharactersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCharactersResult" type="tns:ExtendedCharacterListResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExtendedCharacterListResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BasicResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Characters" type="tns:ArrayOfExtendedCharacter" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfExtendedCharacter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ExtendedCharacter" nillable="true" type="tns:ExtendedCharacter" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExtendedCharacter">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Character">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Sector" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Character">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="World" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CharInfo" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="CharSysInfo" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="GoguardianItems" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastConnectTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Online" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FactionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FactionSympathy" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClanId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClanLevel" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShowInfo" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="token" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="character" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="server" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMailsResult" type="tns:ExtendedMailListResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExtendedMailListResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BasicResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Incoming" type="tns:ArrayOfExtendedMail" />
+              <s:element minOccurs="0" maxOccurs="1" name="Outgoing" type="tns:ArrayOfExtendedMail" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfExtendedMail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ExtendedMail" nillable="true" type="tns:ExtendedMail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExtendedMail">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Mail">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Sender" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Receiver" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Mail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="From_Char" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="To_Char" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Replied" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="New" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ChangePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOutpostsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOutposts" />
+  </wsdl:message>
+  <wsdl:message name="GetOutpostsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOutpostsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServerStatisticsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServerStatistics" />
+  </wsdl:message>
+  <wsdl:message name="GetServerStatisticsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServerStatisticsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPostsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPosts" />
+  </wsdl:message>
+  <wsdl:message name="GetPostsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPostsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCharactersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCharacters" />
+  </wsdl:message>
+  <wsdl:message name="GetCharactersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCharactersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMails" />
+  </wsdl:message>
+  <wsdl:message name="GetMailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMailsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PublicInterfaceSoap">
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input message="tns:ChangePasswordSoapIn" />
+      <wsdl:output message="tns:ChangePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutposts">
+      <wsdl:input message="tns:GetOutpostsSoapIn" />
+      <wsdl:output message="tns:GetOutpostsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerStatistics">
+      <wsdl:input message="tns:GetServerStatisticsSoapIn" />
+      <wsdl:output message="tns:GetServerStatisticsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPosts">
+      <wsdl:input message="tns:GetPostsSoapIn" />
+      <wsdl:output message="tns:GetPostsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCharacters">
+      <wsdl:input message="tns:GetCharactersSoapIn" />
+      <wsdl:output message="tns:GetCharactersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMails">
+      <wsdl:input message="tns:GetMailsSoapIn" />
+      <wsdl:output message="tns:GetMailsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PublicInterfaceSoap" type="tns:PublicInterfaceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://backend.neocron-game.com/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutposts">
+      <soap:operation soapAction="http://backend.neocron-game.com/GetOutposts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerStatistics">
+      <soap:operation soapAction="http://backend.neocron-game.com/GetServerStatistics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPosts">
+      <soap:operation soapAction="http://backend.neocron-game.com/GetPosts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCharacters">
+      <soap:operation soapAction="http://backend.neocron-game.com/GetCharacters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMails">
+      <soap:operation soapAction="http://backend.neocron-game.com/GetMails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PublicInterfaceSoap12" type="tns:PublicInterfaceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ChangePassword">
+      <soap12:operation soapAction="http://backend.neocron-game.com/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutposts">
+      <soap12:operation soapAction="http://backend.neocron-game.com/GetOutposts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerStatistics">
+      <soap12:operation soapAction="http://backend.neocron-game.com/GetServerStatistics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPosts">
+      <soap12:operation soapAction="http://backend.neocron-game.com/GetPosts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCharacters">
+      <soap12:operation soapAction="http://backend.neocron-game.com/GetCharacters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMails">
+      <soap12:operation soapAction="http://backend.neocron-game.com/GetMails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PublicInterface">
+    <wsdl:port name="PublicInterfaceSoap" binding="tns:PublicInterfaceSoap">
+      <soap:address location="http://api.neocron-game.com/PublicInterface.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PublicInterfaceSoap12" binding="tns:PublicInterfaceSoap12">
+      <soap12:address location="http://api.neocron-game.com/PublicInterface.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

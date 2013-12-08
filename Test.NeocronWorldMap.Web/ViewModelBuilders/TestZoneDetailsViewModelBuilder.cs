@@ -15,7 +15,7 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
 
             var zoneDetailsViewModelBuilder = new ZoneDetailsViewModelBuilder();
 
-            var neocronZone = new NeocronZone(xCoordinate, yCoordinate);
+            var neocronZone = new NeocronZone(xCoordinate, yCoordinate, null);
 
             var zoneDetailsViewModel = zoneDetailsViewModelBuilder.Build(neocronZone);
 

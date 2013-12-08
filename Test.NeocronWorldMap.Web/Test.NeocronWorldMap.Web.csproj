@@ -38,6 +38,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,19 +52,71 @@
     <Compile Include="Controllers\Action\TestZoneDetailsAction.cs" />
     <Compile Include="Controllers\TestHomeController.cs" />
     <Compile Include="Controllers\TestZoneController.cs" />
+    <Compile Include="Domain\TestCoordinates.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\PublicInterface\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NeocronSessionManagement\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Services\TestOutpostService.cs" />
     <Compile Include="Services\TestZoneService.cs" />
     <Compile Include="ViewModelBuilders\TestGridViewModelBuilder.cs" />
     <Compile Include="ViewModelBuilders\TestZoneDetailsViewModelBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Service References\PublicInterface\PublicInterface.wsdl" />
+    <None Include="Service References\NeocronSessionManagement\SessionManagement.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NeocronWorldMap.Web\NeocronWorldMap.Web.csproj">
       <Project>{EAEC9BB1-AE4A-4BC7-84A1-CA0EB75DAB50}</Project>
       <Name>NeocronWorldMap.Web</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\PublicInterface\" />
+    <WCFMetadataStorage Include="Service References\NeocronSessionManagement\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NeocronSessionManagement\SessionManagement.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NeocronSessionManagement\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NeocronSessionManagement\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NeocronSessionManagement\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PublicInterface\PublicInterface.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PublicInterface\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PublicInterface\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PublicInterface\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
