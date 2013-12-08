@@ -54,5 +54,10 @@ namespace NeocronWorldMap.Web.Services
         }
 
         public Dictionary<Coordinates, string> NamesAt { get; private set; }
+
+        public bool HasNameAt(Coordinates coordinates)
+        {
+            return NamesAt.ContainsKey(coordinates);
+        }
     }
 }

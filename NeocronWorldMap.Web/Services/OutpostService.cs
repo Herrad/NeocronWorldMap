@@ -13,6 +13,10 @@ namespace NeocronWorldMap.Web.Services
 
         public Outpost GetOutpostDataAt(Coordinates coordinates)
         {
+            if(!_outpostLocations.HasNameAt(coordinates))
+            {
+                return new Outpost("No outpost found");
+            }
             var name = _outpostLocations.NamesAt[coordinates];
 
             return new Outpost(name);

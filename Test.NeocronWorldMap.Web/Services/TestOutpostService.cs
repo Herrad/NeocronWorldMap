@@ -54,5 +54,18 @@ namespace Test.NeocronWorldMap.Web.Services
             Assert.That(outpost, Is.Not.Null);
             Assert.That(outpost.Name, Is.EqualTo(expectedOutpostName));
         }
+
+        [Test]
+        public void Returns_Empty_outpost_when_no_name_is_found()
+        {
+            var outpostService = new OutpostService(new OutpostLocations());
+
+            var coordinates = new Coordinates("99", 'x');
+
+            var outpost = outpostService.GetOutpostDataAt(coordinates);
+
+            Assert.That(outpost, Is.Not.Null);
+            Assert.That(outpost.Name, Is.EqualTo("No outpost found"));
+        }
     }
 }
