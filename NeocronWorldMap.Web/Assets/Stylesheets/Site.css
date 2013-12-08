@@ -1,5 +1,5 @@
-﻿body { font-family: arial;}
+﻿body { font-family: arial;background: #000000;color: white;}
 
-.world-grid{ background: url("/Assets/Images/worldmap.jpg") no-repeat;min-width: 962px;height: 673px;}
+.world-grid{ background: url("/Assets/Images/worldmap.jpg") no-repeat;min-width: 962px;height: 673px;margin-left: auto;margin-right: auto;}
     .world-grid .hover td:hover {padding: 0;background: #ddd;background: rgba(224, 224, 224, 0.5);border: 1px dashed #ddd;}
         .world-grid .hover td a { font-size: 0.5em;}
