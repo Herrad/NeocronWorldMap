@@ -15,7 +15,7 @@ function removeAnchorsAndBindClickEvents(cells) {
 
 function cellClicked(cell) {
     $.ajax({
-        url: "/zone/details?xCoordinate=10&yCoordinate=f",
+        url: "/zone/partialdetails?xCoordinate=10&yCoordinate=f",
         success: function(result) {
             $('.zone-detail').html(result);
         }
