@@ -11,5 +11,7 @@ h2{ margin: 0;}
 
 
 .zone-detail { margin: 15px;padding-left: 15px;background: #303032 no-repeat;border: #957C03 1px solid;width: 300px;}
-.zone-detail div { padding-bottom: 10px;}
+    .zone-detail div { padding-bottom: 10px;}
     .zone-detail h2{margin: 10px 10px 10px 0;border-bottom: #957C03 2px solid;}
+
+.hidden{ display: none;}
