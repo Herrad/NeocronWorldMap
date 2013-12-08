@@ -135,7 +135,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Assets\Images\worldmap - original.jpg" />
     <Content Include="Assets\Images\worldmap.jpg" />
+    <Content Include="Assets\Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Assets\Scripts\Main.js" />
     <Content Include="Assets\Stylesheets\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -165,6 +168,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Zone\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Zone\_PartialDetails.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
