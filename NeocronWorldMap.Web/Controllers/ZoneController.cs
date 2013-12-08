@@ -24,5 +24,12 @@ namespace NeocronWorldMap.Web.Controllers
         {
             _viewModel = viewModel;
         }
+
+        public PartialViewResult PartialDetails(int xCoordinate, char yCoordinate)
+        {
+            var detailsResult = Details(xCoordinate, yCoordinate);
+
+            return PartialView("_PartialDetails", detailsResult.Model);
+        }
     }
 }
