@@ -121,10 +121,14 @@
     <Compile Include="Controllers\IRenderViews.cs" />
     <Compile Include="Controllers\ZoneController.cs" />
     <Compile Include="Domain\Coordinates.cs" />
+    <Compile Include="Domain\Faction.cs" />
+    <Compile Include="Domain\FactionFactory.cs" />
+    <Compile Include="Domain\IHaveInformationAboutOutpostOwnership.cs" />
     <Compile Include="Domain\IHaveOutpostData.cs" />
     <Compile Include="Domain\IHaveZoneDetails.cs" />
     <Compile Include="Domain\NeocronZone.cs" />
     <Compile Include="Domain\Outpost.cs" />
+    <Compile Include="Domain\OutpostOwnershipProfile.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -152,11 +156,14 @@
     <Compile Include="StructureMap\StructureMapDependencyResolver.cs" />
     <Compile Include="ViewModelBuilders\GridViewModelBuilder.cs" />
     <Compile Include="ViewModelBuilders\IBuildGridViewModels.cs" />
+    <Compile Include="ViewModelBuilders\IBuildOutpostOwnershipViewModels.cs" />
     <Compile Include="ViewModelBuilders\IBuildOutpostViewModels.cs" />
     <Compile Include="ViewModelBuilders\IBuildZoneDetailsViewModels.cs" />
+    <Compile Include="ViewModelBuilders\OutpostOwnershipViewModelBuilder.cs" />
     <Compile Include="ViewModelBuilders\OutpostViewModelBuilder.cs" />
     <Compile Include="ViewModelBuilders\ZoneDetailsViewModelBuilder.cs" />
     <Compile Include="ViewModels\GridViewModel.cs" />
+    <Compile Include="ViewModels\OutpostOwnershipViewModel.cs" />
     <Compile Include="ViewModels\OutpostViewModel.cs" />
     <Compile Include="ViewModels\ZoneDetailsViewModel.cs" />
   </ItemGroup>

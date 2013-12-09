@@ -53,6 +53,7 @@
     <Compile Include="Controllers\TestHomeController.cs" />
     <Compile Include="Controllers\TestZoneController.cs" />
     <Compile Include="Domain\TestCoordinates.cs" />
+    <Compile Include="Domain\TestFactionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\PublicInterface\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -67,6 +68,7 @@
     <Compile Include="Services\TestOutpostService.cs" />
     <Compile Include="Services\TestZoneService.cs" />
     <Compile Include="ViewModelBuilders\TestGridViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\TestOutpostOwnershipViewModelBuilder.cs" />
     <Compile Include="ViewModelBuilders\TestOutpostViewModelBuilder.cs" />
     <Compile Include="ViewModelBuilders\TestZoneDetailsViewModelBuilder.cs" />
   </ItemGroup>
