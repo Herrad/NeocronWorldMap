@@ -67,5 +67,18 @@ namespace Test.NeocronWorldMap.Web.Services
             Assert.That(outpost, Is.Not.Null);
             Assert.That(outpost.Name, Is.EqualTo("No outpost found"));
         }
+
+        [Test]
+        public void Builds_a_NeocronZone_from_coordinates()
+        {
+            var outpostService = new OutpostService(new OutpostLocations());
+
+            var coordinates = new Coordinates("99", 'x');
+
+            var outpost = outpostService.GetOutpostDataAt(coordinates);
+
+            Assert.That(outpost.Zone, Is.Not.Null);
+            Assert.That(outpost.Zone, Is.EqualTo(new NeocronZone(coordinates, null)));
+        }
     }
 }

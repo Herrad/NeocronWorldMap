@@ -39,7 +39,7 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
             const char yCoordinate = 'd';
 
             var coordinates = new Coordinates(xCoordinate, yCoordinate);
-            var outpost = new Outpost("foo");
+            var outpost = new Outpost("foo", null);
             var neocronZone = new NeocronZone(coordinates, outpost);
             var outpostViewModel = new OutpostViewModel("foo");
 

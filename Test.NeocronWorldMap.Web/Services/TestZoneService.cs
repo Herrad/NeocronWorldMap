@@ -27,7 +27,7 @@ namespace Test.NeocronWorldMap.Web.Services
         [Test]
         public void Sets_outpost_information_from_provided_outpost()
         {
-            var expectedOutpost = new Outpost("foo");
+            var expectedOutpost = new Outpost("foo", null);
             
             const string xCoordinate = "05";
             const char yCoordinate = 'f';

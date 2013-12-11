@@ -15,11 +15,11 @@ namespace NeocronWorldMap.Web.Services
         {
             if(!_outpostLocations.HasNameAt(coordinates))
             {
-                return new Outpost("No outpost found");
+                return new Outpost("No outpost found", new NeocronZone(coordinates, null));
             }
             var name = _outpostLocations.NamesAt[coordinates];
 
-            return new Outpost(name);
+            return new Outpost(name, null);
         }
     }
 }
