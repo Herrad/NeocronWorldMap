@@ -3,6 +3,5 @@
     public interface IHaveZoneDetails
     {
         Coordinates Coordinates { get; }
-        IHaveOutpostData Outpost { get; }
     }
 }

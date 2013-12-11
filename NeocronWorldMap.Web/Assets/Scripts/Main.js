@@ -19,7 +19,7 @@ function cellClicked() {
         ycoordinate = cell.data("ycoordinate");
     
     $.ajax({
-        url: "/zone/partialdetails?xCoordinate=" + xcoordinate + "&yCoordinate=" + ycoordinate,
+        url: "zone/partialdetails?xCoordinate=" + xcoordinate + "&yCoordinate=" + ycoordinate,
         success: function(result) {
             $('.zone-detail').html(result);
             $('.zone-detail').removeClass("hidden");

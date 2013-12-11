@@ -14,14 +14,12 @@ namespace NeocronWorldMap.Web.Domain
             return (Coordinates != null ? Coordinates.GetHashCode() : 0);
         }
 
-        public NeocronZone(Coordinates coordinates, IHaveOutpostData outpost)
+        public NeocronZone(Coordinates coordinates)
         {
             Coordinates = coordinates;
-            Outpost = outpost;
         }
 
         public Coordinates Coordinates { get; private set; }
-        public IHaveOutpostData Outpost { get; private set; }
 
         public string Name()
         {

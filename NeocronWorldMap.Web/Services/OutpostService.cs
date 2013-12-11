@@ -11,15 +11,16 @@ namespace NeocronWorldMap.Web.Services
             _outpostLocations = outpostLocations;
         }
 
-        public Outpost GetOutpostDataAt(Coordinates coordinates)
+        public IHaveOutpostData GetOutpostDataAt(Coordinates coordinates)
         {
+            var neocronZone = new NeocronZone(coordinates);
             if(!_outpostLocations.HasNameAt(coordinates))
             {
-                return new Outpost("No outpost found", new NeocronZone(coordinates, null));
+                return new Outpost("No outpost found", neocronZone);
             }
             var name = _outpostLocations.NamesAt[coordinates];
 
-            return new Outpost(name, null);
+            return new Outpost(name, neocronZone);
         }
     }
 }

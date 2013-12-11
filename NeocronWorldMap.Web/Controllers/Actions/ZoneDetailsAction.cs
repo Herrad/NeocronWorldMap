@@ -6,12 +6,12 @@ namespace NeocronWorldMap.Web.Controllers.Actions
 {
     public class ZoneDetailsAction : IActionZoneDetailsRequests
     {
-        private readonly ICreateZonesFromCoordinates _zoneService;
+        private readonly IRetrieveOutpostInformation _outpostService;
         private readonly IBuildZoneDetailsViewModels _zoneDetailsViewModelBuilder;
 
-        public ZoneDetailsAction(ICreateZonesFromCoordinates zoneService, IBuildZoneDetailsViewModels zoneDetailsViewModelBuilder)
+        public ZoneDetailsAction(IRetrieveOutpostInformation outpostService, IBuildZoneDetailsViewModels zoneDetailsViewModelBuilder)
         {
-            _zoneService = zoneService;
+            _outpostService = outpostService;
             _zoneDetailsViewModelBuilder = zoneDetailsViewModelBuilder;
         }
 
@@ -19,9 +19,9 @@ namespace NeocronWorldMap.Web.Controllers.Actions
         {
             var coordinates = new Coordinates(xCoordinate, yCoordinate);
 
-            var zoneDetails = _zoneService.GetZoneDetailsAt(coordinates);
+            var outpostData = _outpostService.GetOutpostDataAt(coordinates);
 
-            var zoneDetailsViewModel = _zoneDetailsViewModelBuilder.Build(zoneDetails);
+            var zoneDetailsViewModel = _zoneDetailsViewModelBuilder.Build(outpostData);
 
             viewRenderer.SetViewModel(zoneDetailsViewModel);
         }

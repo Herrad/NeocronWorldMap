@@ -22,9 +22,9 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
 
             var coordinates = new Coordinates(xCoordinate, yCoordinate);
 
-            var neocronZone = new NeocronZone(coordinates, null);
+            var outpost = new Outpost("foo name", new NeocronZone(coordinates));
 
-            var zoneDetailsViewModel = zoneDetailsViewModelBuilder.Build(neocronZone);
+            var zoneDetailsViewModel = zoneDetailsViewModelBuilder.Build(outpost);
 
             Assert.That(zoneDetailsViewModel, Is.Not.Null);
             Assert.That(zoneDetailsViewModel.XCoordinate, Is.EqualTo(xCoordinate));
@@ -39,19 +39,18 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
             const char yCoordinate = 'd';
 
             var coordinates = new Coordinates(xCoordinate, yCoordinate);
-            var outpost = new Outpost("foo", null);
-            var neocronZone = new NeocronZone(coordinates, outpost);
+            var outpost = new Outpost("foo name", new NeocronZone(coordinates));
             var outpostViewModel = new OutpostViewModel("foo");
 
             var outpostViewModelBuilder = MockRepository.GenerateStub<IBuildOutpostViewModels>();
             outpostViewModelBuilder
-                .Stub(x => x.Build(neocronZone.Outpost))
+                .Stub(x => x.Build(outpost))
                 .Return(outpostViewModel);
 
             var zoneDetailsViewModelBuilder = new ZoneDetailsViewModelBuilder(outpostViewModelBuilder);
 
 
-            var zoneDetailsViewModel = zoneDetailsViewModelBuilder.Build(neocronZone);
+            var zoneDetailsViewModel = zoneDetailsViewModelBuilder.Build(outpost);
 
             Assert.That(zoneDetailsViewModel.OutpostViewModel, Is.EqualTo(outpostViewModel));
         }

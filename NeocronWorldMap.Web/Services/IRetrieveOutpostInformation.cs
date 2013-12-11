@@ -4,6 +4,6 @@ namespace NeocronWorldMap.Web.Services
 {
     public interface IRetrieveOutpostInformation
     {
-        Outpost GetOutpostDataAt(Coordinates coordinates);
+        IHaveOutpostData GetOutpostDataAt(Coordinates coordinates);
     }
 }

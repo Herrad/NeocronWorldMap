@@ -9,7 +9,7 @@ namespace Test.NeocronWorldMap.Web.Domain
         [Test]
         public void Returns_formatted_name()
         {
-            var zone = new NeocronZone(new Coordinates("09", 'z'), null);
+            var zone = new NeocronZone(new Coordinates("09", 'z'));
 
             var actualName = zone.Name();
 
@@ -20,8 +20,8 @@ namespace Test.NeocronWorldMap.Web.Domain
         [Test]
         public void Zones_with_different_coordinates_are_not_Equal()
         {
-            var zone1 = new NeocronZone(new Coordinates("11", 'x'), null);
-            var zone2 = new NeocronZone(new Coordinates("22", 'y'), null);
+            var zone1 = new NeocronZone(new Coordinates("11", 'x'));
+            var zone2 = new NeocronZone(new Coordinates("22", 'y'));
 
             Assert.That(zone1, Is.Not.EqualTo(zone2));
         }
@@ -30,8 +30,8 @@ namespace Test.NeocronWorldMap.Web.Domain
         public void Zones_with_same_coordinates_are_Equal()
         {
             var coordinates = new Coordinates("11", 'x');
-            var zone1 = new NeocronZone(coordinates, null);
-            var zone2 = new NeocronZone(coordinates, null);
+            var zone1 = new NeocronZone(coordinates);
+            var zone2 = new NeocronZone(coordinates);
 
             Assert.That(zone1, Is.EqualTo(zone2));
         }

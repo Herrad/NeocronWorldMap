@@ -5,6 +5,6 @@ namespace NeocronWorldMap.Web.ViewModelBuilders
 {
     public interface IBuildZoneDetailsViewModels
     {
-        ZoneDetailsViewModel Build(IHaveZoneDetails zone);
+        ZoneDetailsViewModel Build(IHaveOutpostData zone);
     }
 }

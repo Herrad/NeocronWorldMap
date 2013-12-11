@@ -26,9 +26,9 @@ namespace Test.NeocronWorldMap.Web.Controllers.Action
                 .Stub(x => x.Build(null))
                 .Return(zoneDetailsViewModel);
 
-            var zoneService = MockRepository.GenerateStub<ICreateZonesFromCoordinates>();
+            var outpostService = MockRepository.GenerateStub<IRetrieveOutpostInformation>();
             
-            var detailsAction = new ZoneDetailsAction(zoneService, viewModelBuilder);
+            var detailsAction = new ZoneDetailsAction(outpostService, viewModelBuilder);
 
             detailsAction.Execute("99", 'x', this);
 
@@ -36,14 +36,14 @@ namespace Test.NeocronWorldMap.Web.Controllers.Action
         }
 
         [Test]
-        public void Gives_Zone_from_service_to_ViewModelBuilder()
+        public void Gives_Outpost_from_service_to_ViewModelBuilder()
         {
-            var zoneDetails = MockRepository.GenerateStub<IHaveZoneDetails>();
+            var outpostData = MockRepository.GenerateStub<IHaveOutpostData>();
 
-            var service = MockRepository.GenerateStub<ICreateZonesFromCoordinates>();
+            var service = MockRepository.GenerateStub<IRetrieveOutpostInformation>();
             service
-                .Stub(x => x.GetZoneDetailsAt(new Coordinates("99", 'x')))
-                .Return(zoneDetails);
+                .Stub(x => x.GetOutpostDataAt(new Coordinates("99", 'x')))
+                .Return(outpostData);
 
             var viewModelBuilder = MockRepository.GenerateMock<IBuildZoneDetailsViewModels>();
 
@@ -51,7 +51,7 @@ namespace Test.NeocronWorldMap.Web.Controllers.Action
 
             detailsAction.Execute("99", 'x', this);
 
-            viewModelBuilder.AssertWasCalled(x => x.Build(zoneDetails), c => c.Repeat.Once());
+            viewModelBuilder.AssertWasCalled(x => x.Build(outpostData), c => c.Repeat.Once());
         }
 
         public void SetViewModel(object viewModel)

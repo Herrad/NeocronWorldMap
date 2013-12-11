@@ -23,25 +23,5 @@ namespace Test.NeocronWorldMap.Web.Services
             Assert.That(zone, Is.Not.Null);
             Assert.That(zone.Coordinates, Is.EqualTo(coordinates));
         }
-
-        [Test]
-        public void Sets_outpost_information_from_provided_outpost()
-        {
-            var expectedOutpost = new Outpost("foo", null);
-            
-            const string xCoordinate = "05";
-            const char yCoordinate = 'f';
-
-            var outpostRepository = MockRepository.GenerateStub<IRetrieveOutpostInformation>();
-            outpostRepository
-                .Stub(x => x.GetOutpostDataAt(new Coordinates(xCoordinate, yCoordinate)))
-                .Return(expectedOutpost);
-
-            var zoneService = new ZoneService(outpostRepository);
-
-            var zone = zoneService.GetZoneDetailsAt(new Coordinates(xCoordinate, yCoordinate));
-
-            Assert.That(zone.Outpost, Is.EqualTo(expectedOutpost));
-        }
     }
 }

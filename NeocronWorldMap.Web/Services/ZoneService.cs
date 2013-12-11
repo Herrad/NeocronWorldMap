@@ -14,7 +14,7 @@ namespace NeocronWorldMap.Web.Services
         public IHaveZoneDetails GetZoneDetailsAt(Coordinates coordinates)
         {
             var outpostData = _outpostService.GetOutpostDataAt(coordinates);
-            return new NeocronZone(coordinates, outpostData);
+            return new NeocronZone(coordinates);
         }
     }
 }
