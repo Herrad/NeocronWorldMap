@@ -120,11 +120,14 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IRenderViews.cs" />
     <Compile Include="Controllers\ZoneController.cs" />
+    <Compile Include="Domain\Clan.cs" />
     <Compile Include="Domain\Coordinates.cs" />
     <Compile Include="Domain\Faction.cs" />
     <Compile Include="Domain\FactionFactory.cs" />
+    <Compile Include="Domain\IConvertCoordinatesToSectorCodes.cs" />
     <Compile Include="Domain\IHaveInformationAboutOutpostOwnership.cs" />
     <Compile Include="Domain\IHaveOutpostData.cs" />
+    <Compile Include="Domain\IHaveOwnershipInformation.cs" />
     <Compile Include="Domain\IHaveZoneDetails.cs" />
     <Compile Include="Domain\NeocronZone.cs" />
     <Compile Include="Domain\Outpost.cs" />
@@ -153,6 +156,10 @@
     <Compile Include="Services\ISessionTokenFactory.cs" />
     <Compile Include="Services\OutpostLocations.cs" />
     <Compile Include="Services\OutpostService.cs" />
+    <Compile Include="Services\Repositories\ClanRepository.cs" />
+    <Compile Include="Services\Repositories\IConnectToTheNeocronApi.cs" />
+    <Compile Include="Services\Repositories\IRetrieveOwnershipInformation.cs" />
+    <Compile Include="Services\Repositories\NeocronApi.cs" />
     <Compile Include="Services\SessionTokenFactory.cs" />
     <Compile Include="Services\ZoneService.cs" />
     <Compile Include="StructureMap\DependencyInjector.cs" />
