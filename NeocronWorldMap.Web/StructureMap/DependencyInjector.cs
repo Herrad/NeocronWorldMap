@@ -18,7 +18,6 @@ namespace NeocronWorldMap.Web.StructureMap
                         {
                             scanner.TheCallingAssembly();
                             scanner.AddAllTypesOf<IActionZoneDetailsRequests>();
-                            scanner.AddAllTypesOf<ICreateZonesFromCoordinates>();
                             scanner.AddAllTypesOf<IBuildZoneDetailsViewModels>();
                             scanner.AddAllTypesOf<IActionIndexRequests>();
                             scanner.AddAllTypesOf<IBuildGridViewModels>();

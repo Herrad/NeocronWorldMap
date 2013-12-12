@@ -81,5 +81,11 @@ namespace Test.NeocronWorldMap.Web.Services
             Assert.That(outpost.Zone, Is.Not.Null);
             Assert.That(outpost.Zone, Is.EqualTo(new NeocronZone(coordinates)));
         }
+
+        [Test]
+        public void Test_something()
+        {
+            
+        }
     }
 }

@@ -150,7 +150,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Services\ICreateZonesFromCoordinates.cs" />
     <Compile Include="Services\IKnowAboutOutposts.cs" />
     <Compile Include="Services\IRetrieveOutpostInformation.cs" />
     <Compile Include="Services\ISessionTokenFactory.cs" />
@@ -161,7 +160,6 @@
     <Compile Include="Services\Repositories\IRetrieveOwnershipInformation.cs" />
     <Compile Include="Services\Repositories\NeocronApi.cs" />
     <Compile Include="Services\SessionTokenFactory.cs" />
-    <Compile Include="Services\ZoneService.cs" />
     <Compile Include="StructureMap\DependencyInjector.cs" />
     <Compile Include="StructureMap\StructureMapControllerActivator.cs" />
     <Compile Include="StructureMap\StructureMapDependencyResolver.cs" />

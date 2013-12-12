@@ -14,6 +14,7 @@ namespace NeocronWorldMap.Web.Services
         public IHaveOutpostData GetOutpostDataAt(Coordinates coordinates)
         {
             var neocronZone = new NeocronZone(coordinates);
+
             if(!_outpostLocations.HasNameAt(coordinates))
             {
                 return new Outpost("No outpost found", neocronZone);
