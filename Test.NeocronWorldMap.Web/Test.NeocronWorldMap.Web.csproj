@@ -55,6 +55,7 @@
     <Compile Include="Domain\TestCoordinates.cs" />
     <Compile Include="Domain\TestFactionFactory.cs" />
     <Compile Include="Domain\TestNeocronZone.cs" />
+    <Compile Include="Domain\TestSectorCodeMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\PublicInterface\Reference.cs">
       <AutoGen>True</AutoGen>
