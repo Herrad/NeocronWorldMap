@@ -14,12 +14,26 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
 
             var outpostViewModelBuilder = new OutpostViewModelBuilder();
 
-            var outpost = new Outpost(expectedName, null, null);
+            var outpost = new Outpost(expectedName, null, new Clan(null));
 
             var outpostViewModel = outpostViewModelBuilder.Build(outpost);
 
             Assert.That(outpostViewModel, Is.Not.Null);
             Assert.That(outpostViewModel.Name, Is.EqualTo(expectedName));
+        }
+
+        [Test]
+        public void Sets_OwnerViewModel()
+        {
+            const string expectedClanName = "foo clan";
+            var outpostViewModelBuilder = new OutpostViewModelBuilder();
+
+            var outpost = new Outpost(null, null, new Clan(expectedClanName));
+
+            var outpostViewModel = outpostViewModelBuilder.Build(outpost);
+
+            Assert.That(outpostViewModel.OutpostOwnershipViewModel, Is.Not.Null);
+            Assert.That(outpostViewModel.OutpostOwnershipViewModel.ClanName, Is.EqualTo(expectedClanName));
         }
     }
 }

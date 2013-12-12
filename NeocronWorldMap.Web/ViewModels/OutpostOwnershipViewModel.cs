@@ -2,11 +2,11 @@ namespace NeocronWorldMap.Web.ViewModels
 {
     public class OutpostOwnershipViewModel
     {
-        public OutpostOwnershipViewModel(string factionName)
+        public OutpostOwnershipViewModel(string clanName)
         {
-            FactionName = factionName;
+            ClanName = clanName;
         }
 
-        public string FactionName { get; private set; }
+        public string ClanName { get; private set; }
     }
 }

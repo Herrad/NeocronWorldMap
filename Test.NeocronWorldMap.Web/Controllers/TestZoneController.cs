@@ -25,7 +25,7 @@ namespace Test.NeocronWorldMap.Web.Controllers
         [Test]
         public void Details_gives_set_ViewModel_to_View()
         {
-            var viewModel = new ZoneDetailsViewModel("99", 'x', null, null);
+            var viewModel = new ZoneDetailsViewModel(null, null);
 
             var detailsAction = MockRepository.GenerateStub<IActionZoneDetailsRequests>();
 
@@ -68,7 +68,7 @@ namespace Test.NeocronWorldMap.Web.Controllers
         [Test]
         public void PartialDetails_gives_set_ViewModel_to_View()
         {
-            var viewModel = new ZoneDetailsViewModel("99", 'x', null, null);
+            var viewModel = new ZoneDetailsViewModel(null, null);
 
             var detailsAction = MockRepository.GenerateStub<IActionZoneDetailsRequests>();
 

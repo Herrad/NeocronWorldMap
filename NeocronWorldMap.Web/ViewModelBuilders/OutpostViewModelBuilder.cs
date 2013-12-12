@@ -7,7 +7,9 @@ namespace NeocronWorldMap.Web.ViewModelBuilders
     {
         public OutpostViewModel Build(IHaveOutpostData outpost)
         {
-            return new OutpostViewModel(outpost.Name);
+            var outpostOwnershipViewModel = new OutpostOwnershipViewModel(outpost.CurrentOwners.Name);
+
+            return new OutpostViewModel(outpost.Name, outpostOwnershipViewModel);
         }
     }
 }
