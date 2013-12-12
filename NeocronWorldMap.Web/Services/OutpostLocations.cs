@@ -3,12 +3,13 @@ using NeocronWorldMap.Web.Domain;
 
 namespace NeocronWorldMap.Web.Services
 {
-    public interface IHaveLocationsOfOutpostNames
+    public interface IKnowWhereOutpostsAre
     {
         string GetOutpostNameAt(Coordinates coordinates);
+        bool OutpostExistsAt(Coordinates coordinates);
     }
 
-    public class OutpostLocations : IHaveLocationsOfOutpostNames
+    public class OutpostLocations : IKnowWhereOutpostsAre
     {
         private Dictionary<Coordinates, string> _names;
 
@@ -62,11 +63,16 @@ namespace NeocronWorldMap.Web.Services
 
         public string GetOutpostNameAt(Coordinates coordinates)
         {
-            if (!_names.ContainsKey(coordinates))
+            if (OutpostExistsAt(coordinates))
             {
-                return "No outpost found";
+                return _names[coordinates];
             }
-            return _names[coordinates];
+            return "No outpost found";
+        }
+
+        public bool OutpostExistsAt(Coordinates coordinates)
+        {
+            return _names.ContainsKey(coordinates);
         }
     }
 }

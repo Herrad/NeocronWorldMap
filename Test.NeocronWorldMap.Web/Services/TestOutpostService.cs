@@ -38,7 +38,7 @@ namespace Test.NeocronWorldMap.Web.Services
         }
 
         [Test]
-        public void Sets_CurrentOwner_on_outpost()
+        public void Sets_CurrentOwner_on_outpost_when_an_outpost_exists_at_coordinates()
         {
             var coordinates = new Coordinates("99", 'x');
             var expectedClan = new Clan("foo name");
@@ -48,7 +48,35 @@ namespace Test.NeocronWorldMap.Web.Services
                 .Stub(x => x.GetCurrentOwners(coordinates))
                 .Return(expectedClan);
 
-            var outpostService = new OutpostService(new OutpostLocations(), ownershipService);
+            var outpostLocations = MockRepository.GenerateStub<IKnowWhereOutpostsAre>();
+            outpostLocations
+                .Stub(x => x.OutpostExistsAt(coordinates))
+                .Return(true);
+
+            var outpostService = new OutpostService(outpostLocations, ownershipService);
+
+            var outpostData = outpostService.GetOutpostDataAt(coordinates);
+
+            Assert.That(outpostData.CurrentOwners, Is.EqualTo(expectedClan));
+        }
+
+        [Test]
+        public void Sets_empty_CurrentOwner_on_outpost_when_an_outpost_does_not_exist_at_coordinates()
+        {
+            var coordinates = new Coordinates("99", 'x');
+            var expectedClan = Clan.NotApplicable();
+
+            var ownershipService = MockRepository.GenerateStub<IRetrieveOwnershipInformation>();
+            ownershipService
+                .Stub(x => x.GetCurrentOwners(coordinates))
+                .Return(expectedClan);
+
+            var outpostLocations = MockRepository.GenerateStub<IKnowWhereOutpostsAre>();
+            outpostLocations
+                .Stub(x => x.OutpostExistsAt(coordinates))
+                .Return(false);
+
+            var outpostService = new OutpostService(outpostLocations, ownershipService);
 
             var outpostData = outpostService.GetOutpostDataAt(coordinates);
 

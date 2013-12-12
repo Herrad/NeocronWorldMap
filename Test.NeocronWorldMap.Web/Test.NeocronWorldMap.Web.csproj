@@ -52,6 +52,7 @@
     <Compile Include="Controllers\Action\TestZoneDetailsAction.cs" />
     <Compile Include="Controllers\TestHomeController.cs" />
     <Compile Include="Controllers\TestZoneController.cs" />
+    <Compile Include="Domain\TestClan.cs" />
     <Compile Include="Domain\TestCoordinates.cs" />
     <Compile Include="Domain\TestFactionFactory.cs" />
     <Compile Include="Domain\TestNeocronZone.cs" />
@@ -67,9 +68,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Services\Repositories\TestClanRepository.cs" />
     <Compile Include="Services\TestOutpostLocations.cs" />
     <Compile Include="Services\TestOutpostService.cs" />
+    <Compile Include="Services\TestOwnershipService.cs" />
     <Compile Include="ViewModelBuilders\TestGridViewModelBuilder.cs" />
     <Compile Include="ViewModelBuilders\TestOutpostViewModelBuilder.cs" />
     <Compile Include="ViewModelBuilders\TestZoneDetailsViewModelBuilder.cs" />
@@ -122,6 +123,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\Repositories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

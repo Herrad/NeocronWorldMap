@@ -1,14 +1,15 @@
+using NUnit.Framework;
 using NeocronWorldMap.Web.Domain;
 using NeocronWorldMap.Web.NeocronPublicInterface;
+using NeocronWorldMap.Web.Services;
 using NeocronWorldMap.Web.Services.Repositories;
-using NUnit.Framework;
 using Rhino.Mocks;
 using Clan = NeocronWorldMap.Web.NeocronPublicInterface.Clan;
 
-namespace Test.NeocronWorldMap.Web.Services.Repositories
+namespace Test.NeocronWorldMap.Web.Services
 {
     [TestFixture]
-    public class TestClanRepository
+    public class TestOwnershipService
     {
         [Test]
         public void GetCurrentOwners_returns_current_owners_of_outpost()
@@ -33,7 +34,7 @@ namespace Test.NeocronWorldMap.Web.Services.Repositories
                 .Stub(x => x.GetOutpostForSector(sectorCode))
                 .Return(extendedOutpost);
 
-            var clanRepository = new ClanRepository(neocronApi, sectorCodeMapper);
+            var clanRepository = new OwnershipService(neocronApi, sectorCodeMapper);
 
             var currentOwners = clanRepository.GetCurrentOwners(outpost.Zone.Coordinates);
 

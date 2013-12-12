@@ -25,7 +25,7 @@ namespace NeocronWorldMap.Web.StructureMap
                             scanner.AddAllTypesOf<IBuildGridViewModels>();
                             scanner.AddAllTypesOf<IRetrieveOutpostInformation>();
                             scanner.AddAllTypesOf<IBuildOutpostViewModels>();
-                            scanner.AddAllTypesOf<IHaveLocationsOfOutpostNames>();        
+                            scanner.AddAllTypesOf<IKnowWhereOutpostsAre>();        
                             scanner.AddAllTypesOf<IRetrieveOwnershipInformation>();
                             scanner.AddAllTypesOf<IConnectToTheNeocronApi>();
                             scanner.AddAllTypesOf<IConvertCoordinatesToSectorCodes>();

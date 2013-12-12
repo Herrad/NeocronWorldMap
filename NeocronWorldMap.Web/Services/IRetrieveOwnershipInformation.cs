@@ -1,6 +1,6 @@
 ﻿using NeocronWorldMap.Web.Domain;
 
-namespace NeocronWorldMap.Web.Services.Repositories
+namespace NeocronWorldMap.Web.Services
 {
     public interface IRetrieveOwnershipInformation
     {

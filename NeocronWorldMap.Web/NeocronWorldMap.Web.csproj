@@ -153,12 +153,12 @@
     </Compile>
     <Compile Include="Services\IKnowAboutOutposts.cs" />
     <Compile Include="Services\IRetrieveOutpostInformation.cs" />
+    <Compile Include="Services\IRetrieveOwnershipInformation.cs" />
     <Compile Include="Services\ISessionTokenFactory.cs" />
     <Compile Include="Services\OutpostLocations.cs" />
     <Compile Include="Services\OutpostService.cs" />
-    <Compile Include="Services\Repositories\ClanRepository.cs" />
+    <Compile Include="Services\OwnershipService.cs" />
     <Compile Include="Services\Repositories\IConnectToTheNeocronApi.cs" />
-    <Compile Include="Services\Repositories\IRetrieveOwnershipInformation.cs" />
     <Compile Include="Services\Repositories\NeocronApi.cs" />
     <Compile Include="Services\SessionTokenFactory.cs" />
     <Compile Include="StructureMap\DependencyInjector.cs" />

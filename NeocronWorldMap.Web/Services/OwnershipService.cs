@@ -1,13 +1,14 @@
 ﻿using NeocronWorldMap.Web.Domain;
+using NeocronWorldMap.Web.Services.Repositories;
 
-namespace NeocronWorldMap.Web.Services.Repositories
+namespace NeocronWorldMap.Web.Services
 {
-    public class ClanRepository : IRetrieveOwnershipInformation
+    public class OwnershipService : IRetrieveOwnershipInformation
     {
         private readonly IConnectToTheNeocronApi _neocronApi;
         private readonly IConvertCoordinatesToSectorCodes _sectorCodeMapper;
 
-        public ClanRepository(IConnectToTheNeocronApi neocronApi, IConvertCoordinatesToSectorCodes sectorCodeMapper)
+        public OwnershipService(IConnectToTheNeocronApi neocronApi, IConvertCoordinatesToSectorCodes sectorCodeMapper)
         {
             _neocronApi = neocronApi;
             _sectorCodeMapper = sectorCodeMapper;
