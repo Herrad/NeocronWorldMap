@@ -35,7 +35,7 @@ namespace Test.NeocronWorldMap.Web.Services.Repositories
 
             var clanRepository = new ClanRepository(neocronApi, sectorCodeMapper);
 
-            var currentOwners = clanRepository.GetCurrentOwners(outpost);
+            var currentOwners = clanRepository.GetCurrentOwners(outpost.Zone.Coordinates);
 
             Assert.That(currentOwners, Is.Not.Null);
             Assert.That(currentOwners.Name, Is.EqualTo("foo clan"));

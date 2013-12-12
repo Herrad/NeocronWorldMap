@@ -1,27 +1,28 @@
 using NeocronWorldMap.Web.Domain;
+using NeocronWorldMap.Web.Services.Repositories;
 
 namespace NeocronWorldMap.Web.Services
 {
     public class OutpostService : IRetrieveOutpostInformation
     {
-        private readonly OutpostLocations _outpostLocations;
+        private readonly IHaveLocationsOfOutpostNames _outpostLocations;
+        private readonly IRetrieveOwnershipInformation _ownershipService;
 
-        public OutpostService(OutpostLocations outpostLocations)
+        public OutpostService(IHaveLocationsOfOutpostNames outpostLocations, IRetrieveOwnershipInformation ownershipService)
         {
             _outpostLocations = outpostLocations;
+            _ownershipService = ownershipService;
         }
 
         public IHaveOutpostData GetOutpostDataAt(Coordinates coordinates)
         {
             var neocronZone = new NeocronZone(coordinates);
 
-            if(!_outpostLocations.HasNameAt(coordinates))
-            {
-                return new Outpost("No outpost found", neocronZone);
-            }
-            var name = _outpostLocations.NamesAt[coordinates];
+            var name = _outpostLocations.GetOutpostNameAt(coordinates);
 
-            return new Outpost(name, neocronZone);
+            var currentOwners = _ownershipService.GetCurrentOwners(coordinates);
+
+            return new Outpost(name, neocronZone, currentOwners);
         }
     }
 }

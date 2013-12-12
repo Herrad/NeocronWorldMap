@@ -22,7 +22,7 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
 
             var coordinates = new Coordinates(xCoordinate, yCoordinate);
 
-            var outpost = new Outpost("foo name", new NeocronZone(coordinates));
+            var outpost = new Outpost("foo name", new NeocronZone(coordinates), null);
 
             var zoneDetailsViewModel = zoneDetailsViewModelBuilder.Build(outpost);
 
@@ -39,7 +39,7 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
             const char yCoordinate = 'd';
 
             var coordinates = new Coordinates(xCoordinate, yCoordinate);
-            var outpost = new Outpost("foo name", new NeocronZone(coordinates));
+            var outpost = new Outpost("foo name", new NeocronZone(coordinates), null);
             var outpostViewModel = new OutpostViewModel("foo");
 
             var outpostViewModelBuilder = MockRepository.GenerateStub<IBuildOutpostViewModels>();

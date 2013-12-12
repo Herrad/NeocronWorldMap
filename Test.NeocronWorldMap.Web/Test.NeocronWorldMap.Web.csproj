@@ -67,6 +67,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Services\Repositories\TestClanRepository.cs" />
+    <Compile Include="Services\TestOutpostLocations.cs" />
     <Compile Include="Services\TestOutpostService.cs" />
     <Compile Include="ViewModelBuilders\TestGridViewModelBuilder.cs" />
     <Compile Include="ViewModelBuilders\TestOutpostViewModelBuilder.cs" />

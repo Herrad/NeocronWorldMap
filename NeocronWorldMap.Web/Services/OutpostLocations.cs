@@ -3,8 +3,15 @@ using NeocronWorldMap.Web.Domain;
 
 namespace NeocronWorldMap.Web.Services
 {
-    public class OutpostLocations
+    public interface IHaveLocationsOfOutpostNames
     {
+        string GetOutpostNameAt(Coordinates coordinates);
+    }
+
+    public class OutpostLocations : IHaveLocationsOfOutpostNames
+    {
+        private Dictionary<Coordinates, string> _names;
+
         public OutpostLocations()
         {
             SetupNames();
@@ -12,7 +19,7 @@ namespace NeocronWorldMap.Web.Services
 
         private void SetupNames()
         {
-            NamesAt = new Dictionary<Coordinates, string>
+            _names = new Dictionary<Coordinates, string>
                           {
                               {new Coordinates("04", 'k'), "Rockshore Factory"},
                               {new Coordinates("05", 'k'), "Drakhan Fortress"},
@@ -53,11 +60,13 @@ namespace NeocronWorldMap.Web.Services
                           };
         }
 
-        public Dictionary<Coordinates, string> NamesAt { get; private set; }
-
-        public bool HasNameAt(Coordinates coordinates)
+        public string GetOutpostNameAt(Coordinates coordinates)
         {
-            return NamesAt.ContainsKey(coordinates);
+            if (!_names.ContainsKey(coordinates))
+            {
+                return "No outpost found";
+            }
+            return _names[coordinates];
         }
     }
 }

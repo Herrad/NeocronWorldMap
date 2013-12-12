@@ -13,9 +13,9 @@ namespace NeocronWorldMap.Web.Services.Repositories
             _sectorCodeMapper = sectorCodeMapper;
         }
 
-        public IHaveOwnershipInformation GetCurrentOwners(IHaveOutpostData outpost)
+        public IHaveOwnershipInformation GetCurrentOwners(Coordinates coordinates)
         {
-            var sectorCode = _sectorCodeMapper.Map(outpost.Zone.Coordinates);
+            var sectorCode = _sectorCodeMapper.Map(coordinates);
             var outpostForSector = _neocronApi.GetOutpostForSector(sectorCode);
 
             var name = outpostForSector.Clan.Name;

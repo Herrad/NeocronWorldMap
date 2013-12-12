@@ -165,7 +165,6 @@
     <Compile Include="StructureMap\StructureMapDependencyResolver.cs" />
     <Compile Include="ViewModelBuilders\GridViewModelBuilder.cs" />
     <Compile Include="ViewModelBuilders\IBuildGridViewModels.cs" />
-    <Compile Include="ViewModelBuilders\IBuildOutpostOwnershipViewModels.cs" />
     <Compile Include="ViewModelBuilders\IBuildOutpostViewModels.cs" />
     <Compile Include="ViewModelBuilders\IBuildZoneDetailsViewModels.cs" />
     <Compile Include="ViewModelBuilders\OutpostViewModelBuilder.cs" />

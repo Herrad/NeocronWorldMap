@@ -14,7 +14,9 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
 
             var outpostViewModelBuilder = new OutpostViewModelBuilder();
 
-            var outpostViewModel = outpostViewModelBuilder.Build(new Outpost(expectedName, null));
+            var outpost = new Outpost(expectedName, null, null);
+
+            var outpostViewModel = outpostViewModelBuilder.Build(outpost);
 
             Assert.That(outpostViewModel, Is.Not.Null);
             Assert.That(outpostViewModel.Name, Is.EqualTo(expectedName));
