@@ -1,5 +1,7 @@
 ﻿using NeocronWorldMap.Web.Domain;
+using NeocronWorldMap.Web.NeocronPublicInterface;
 using NeocronWorldMap.Web.Services.Repositories;
+using Clan = NeocronWorldMap.Web.Domain.Clan;
 
 namespace NeocronWorldMap.Web.Services
 {
@@ -18,7 +20,14 @@ namespace NeocronWorldMap.Web.Services
             var outpostForSector = _neocronApi.GetOutpostForSector(sectorCode);
 
             var name = outpostForSector.Clan.Name;
-            return new Clan(name);
+            var faction = BuildFaction(outpostForSector);
+
+            return new Clan(name, faction);
+        }
+
+        private static Faction BuildFaction(ExtendedOutpost outpostForSector)
+        {
+            return new Faction(outpostForSector.Faction);
         }
     }
 }

@@ -124,6 +124,7 @@
     <Compile Include="Domain\Coordinates.cs" />
     <Compile Include="Domain\Faction.cs" />
     <Compile Include="Domain\FactionFactory.cs" />
+    <Compile Include="Domain\Factions.cs" />
     <Compile Include="Domain\IHaveInformationAboutOutpostOwnership.cs" />
     <Compile Include="Domain\IHaveOutpostData.cs" />
     <Compile Include="Domain\IHaveOwnershipInformation.cs" />

@@ -12,16 +12,19 @@
             return (Name != null ? Name.GetHashCode() : 0);
         }
 
-        public Clan(string name)
+        public Clan(string name, Faction faction)
         {
             Name = name;
+            Faction = faction;
         }
 
         public string Name { get; private set; }
+        public Faction Faction { get; private set; }
 
         public static IHaveOwnershipInformation NotApplicable()
         {
-            return new Clan("Not applicable");
+            const string notApplicable = "Not applicable";
+            return new Clan(notApplicable, new Faction(notApplicable));
         }
 
         public override bool Equals(object obj)

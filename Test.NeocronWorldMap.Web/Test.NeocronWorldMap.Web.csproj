@@ -54,6 +54,7 @@
     <Compile Include="Controllers\TestZoneController.cs" />
     <Compile Include="Domain\TestClan.cs" />
     <Compile Include="Domain\TestCoordinates.cs" />
+    <Compile Include="Domain\TestFaction.cs" />
     <Compile Include="Domain\TestFactionFactory.cs" />
     <Compile Include="Domain\TestNeocronZone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

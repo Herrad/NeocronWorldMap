@@ -41,7 +41,7 @@ namespace Test.NeocronWorldMap.Web.Services
         public void Sets_CurrentOwner_on_outpost_when_an_outpost_exists_at_coordinates()
         {
             var coordinates = new Coordinates("99", 'x');
-            var expectedClan = new Clan("foo name");
+            var expectedClan = new Clan("foo name", null);
 
             var ownershipService = MockRepository.GenerateStub<IRetrieveOwnershipInformation>();
             ownershipService

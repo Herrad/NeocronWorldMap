@@ -3,5 +3,6 @@
     public interface IHaveOwnershipInformation
     {
         string Name { get; }
+        Faction Faction { get; }
     }
 }
