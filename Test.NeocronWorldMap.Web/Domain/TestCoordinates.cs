@@ -23,5 +23,17 @@ namespace Test.NeocronWorldMap.Web.Domain
 
             Assert.That(coordinates1, Is.Not.EqualTo(coordinates2), "different coordinates were equal");
         }
+
+        [TestCase('a', "06", 2006)]
+        [TestCase('b', "10", 2030)]
+        [TestCase('i', "11", 2171)]
+        public void Can_be_converted_to_sector_code(char yCoordinate, string xCoordinate, int expectedCode)
+        {
+            var coordinates = new Coordinates(xCoordinate, yCoordinate);
+
+            var sectorCode = coordinates.ToSectorCode();
+
+            Assert.That(sectorCode, Is.EqualTo(expectedCode));
+        }
     }
 }

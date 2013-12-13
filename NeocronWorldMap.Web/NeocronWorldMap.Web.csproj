@@ -124,14 +124,12 @@
     <Compile Include="Domain\Coordinates.cs" />
     <Compile Include="Domain\Faction.cs" />
     <Compile Include="Domain\FactionFactory.cs" />
-    <Compile Include="Domain\IConvertCoordinatesToSectorCodes.cs" />
     <Compile Include="Domain\IHaveInformationAboutOutpostOwnership.cs" />
     <Compile Include="Domain\IHaveOutpostData.cs" />
     <Compile Include="Domain\IHaveOwnershipInformation.cs" />
     <Compile Include="Domain\IHaveZoneDetails.cs" />
     <Compile Include="Domain\NeocronZone.cs" />
     <Compile Include="Domain\Outpost.cs" />
-    <Compile Include="Domain\SectorCodeMapper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

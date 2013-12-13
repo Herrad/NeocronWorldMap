@@ -28,7 +28,6 @@ namespace NeocronWorldMap.Web.StructureMap
                             scanner.AddAllTypesOf<IKnowWhereOutpostsAre>();        
                             scanner.AddAllTypesOf<IRetrieveOwnershipInformation>();
                             scanner.AddAllTypesOf<IConnectToTheNeocronApi>();
-                            scanner.AddAllTypesOf<IConvertCoordinatesToSectorCodes>();
                         });
 
                     x.For<OutpostLocations>().LifecycleIs(Lifecycles.GetLifecycle(InstanceScope.Singleton));
