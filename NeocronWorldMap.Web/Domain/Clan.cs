@@ -1,6 +1,8 @@
-﻿namespace NeocronWorldMap.Web.Domain
+﻿using System;
+
+namespace NeocronWorldMap.Web.Domain
 {
-    public class Clan : IHaveOwnershipInformation
+    public class Clan : ICanOwnOutposts
     {
         protected bool Equals(Clan other)
         {
@@ -12,19 +14,21 @@
             return (Name != null ? Name.GetHashCode() : 0);
         }
 
-        public Clan(string name, Faction faction)
+        public Clan(string name, Faction faction, TimeSpan timeOwnedFor)
         {
+            TimeOwnedFor = timeOwnedFor;
             Name = name;
             Faction = faction;
         }
 
         public string Name { get; private set; }
         public Faction Faction { get; private set; }
+        public TimeSpan TimeOwnedFor { get; private set; }
 
-        public static IHaveOwnershipInformation NotApplicable()
+        public static ICanOwnOutposts NotApplicable()
         {
             const string notApplicable = "Not applicable";
-            return new Clan(notApplicable, new Faction(notApplicable));
+            return new Clan(notApplicable, new Faction(notApplicable), new TimeSpan());
         }
 
         public override bool Equals(object obj)

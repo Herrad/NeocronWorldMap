@@ -125,9 +125,8 @@
     <Compile Include="Domain\Faction.cs" />
     <Compile Include="Domain\FactionFactory.cs" />
     <Compile Include="Domain\Factions.cs" />
-    <Compile Include="Domain\IHaveInformationAboutOutpostOwnership.cs" />
     <Compile Include="Domain\IHaveOutpostData.cs" />
-    <Compile Include="Domain\IHaveOwnershipInformation.cs" />
+    <Compile Include="Domain\ICanOwnOutposts.cs" />
     <Compile Include="Domain\IHaveZoneDetails.cs" />
     <Compile Include="Domain\NeocronZone.cs" />
     <Compile Include="Domain\Outpost.cs" />
@@ -158,6 +157,7 @@
     <Compile Include="Services\OutpostService.cs" />
     <Compile Include="Services\OwnershipService.cs" />
     <Compile Include="Services\Repositories\IConnectToTheNeocronApi.cs" />
+    <Compile Include="Services\Repositories\InMemoryApi.cs" />
     <Compile Include="Services\Repositories\NeocronApi.cs" />
     <Compile Include="Services\SessionTokenFactory.cs" />
     <Compile Include="StructureMap\DependencyInjector.cs" />
@@ -297,6 +297,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Views\Zone\_Owners.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

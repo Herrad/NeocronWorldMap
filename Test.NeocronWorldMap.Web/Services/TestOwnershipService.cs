@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 using NeocronWorldMap.Web.Domain;
 using NeocronWorldMap.Web.NeocronPublicInterface;
@@ -66,6 +67,24 @@ namespace Test.NeocronWorldMap.Web.Services
 
             Assert.That(currentOwners.Faction, Is.Not.Null);
             Assert.That(currentOwners.Faction, Is.EqualTo(expectedFaction));
+        }
+        [Test]
+        public void Sets_TimeOwnedFor_from_difference_between_now_and_ConquerTime()
+        {
+            var coordinates = new Coordinates("99", 'x');
+            
+            var conquerTime = DateTime.Now.AddHours(-1);
+            var neocronApi = MockRepository.GenerateStub<IConnectToTheNeocronApi>();
+            neocronApi
+                .Stub(x => x.GetOutpostForSector(coordinates.ToSectorCode()))
+                .Return(new ExtendedOutpost { Clan = new Clan(), ConquerTime = conquerTime });
+
+            var ownershipService = new OwnershipService(neocronApi);
+
+            var clan = ownershipService.GetCurrentOwners(coordinates);
+
+            Assert.That(clan.TimeOwnedFor, Is.GreaterThanOrEqualTo(new TimeSpan(1, 0, 0)));
+            Assert.That(clan.TimeOwnedFor, Is.LessThan(new TimeSpan(1, 0, 5)));
         }
     }
 }

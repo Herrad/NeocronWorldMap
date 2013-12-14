@@ -1,8 +1,11 @@
+using System;
 using NUnit.Framework;
 using NeocronWorldMap.Web.Domain;
+using NeocronWorldMap.Web.NeocronPublicInterface;
 using NeocronWorldMap.Web.Services;
 using NeocronWorldMap.Web.Services.Repositories;
 using Rhino.Mocks;
+using Clan = NeocronWorldMap.Web.Domain.Clan;
 
 namespace Test.NeocronWorldMap.Web.Services
 {
@@ -13,9 +16,18 @@ namespace Test.NeocronWorldMap.Web.Services
         [Test]
         public void Returns_Empty_outpost_when_no_name_is_found()
         {
-            var outpostService = new OutpostService(new OutpostLocations(), MockRepository.GenerateStub<IRetrieveOwnershipInformation>());
-
             var coordinates = new Coordinates("99", 'x');
+            
+            var neocronApi = MockRepository.GenerateStub<IConnectToTheNeocronApi>();
+            neocronApi
+                .Stub(x => x.GetOutpostForSector(coordinates.ToSectorCode()))
+                .Return(new ExtendedOutpost());
+
+            var outpostService = new OutpostService(
+                new OutpostLocations(), 
+                MockRepository.GenerateStub<IRetrieveOwnershipInformation>(), 
+                neocronApi);
+
 
             var outpost = outpostService.GetOutpostDataAt(coordinates);
 
@@ -27,9 +39,18 @@ namespace Test.NeocronWorldMap.Web.Services
         [TestCase("05", 'f')]
         public void Builds_a_NeocronZone_from_coordinates(string xCoordinate, char yCoordinate)
         {
-            var outpostService = new OutpostService(new OutpostLocations(), MockRepository.GenerateStub<IRetrieveOwnershipInformation>());
-
             var coordinates = new Coordinates(xCoordinate, yCoordinate);
+
+            var neocronApi = MockRepository.GenerateStub<IConnectToTheNeocronApi>();
+            neocronApi
+                .Stub(x => x.GetOutpostForSector(coordinates.ToSectorCode()))
+                .Return(new ExtendedOutpost());
+
+            var outpostService = new OutpostService(
+                new OutpostLocations(), 
+                MockRepository.GenerateStub<IRetrieveOwnershipInformation>(), 
+                neocronApi);
+
 
             var outpost = outpostService.GetOutpostDataAt(coordinates);
 
@@ -41,7 +62,7 @@ namespace Test.NeocronWorldMap.Web.Services
         public void Sets_CurrentOwner_on_outpost_when_an_outpost_exists_at_coordinates()
         {
             var coordinates = new Coordinates("99", 'x');
-            var expectedClan = new Clan("foo name", null);
+            var expectedClan = new Clan("foo name", null, new TimeSpan());
 
             var ownershipService = MockRepository.GenerateStub<IRetrieveOwnershipInformation>();
             ownershipService
@@ -53,7 +74,12 @@ namespace Test.NeocronWorldMap.Web.Services
                 .Stub(x => x.OutpostExistsAt(coordinates))
                 .Return(true);
 
-            var outpostService = new OutpostService(outpostLocations, ownershipService);
+            var neocronApi = MockRepository.GenerateStub<IConnectToTheNeocronApi>();
+            neocronApi
+                .Stub(x => x.GetOutpostForSector(coordinates.ToSectorCode()))
+                .Return(new ExtendedOutpost());
+
+            var outpostService = new OutpostService(outpostLocations, ownershipService, neocronApi);
 
             var outpostData = outpostService.GetOutpostDataAt(coordinates);
 
@@ -76,11 +102,42 @@ namespace Test.NeocronWorldMap.Web.Services
                 .Stub(x => x.OutpostExistsAt(coordinates))
                 .Return(false);
 
-            var outpostService = new OutpostService(outpostLocations, ownershipService);
+            var neocronApi = MockRepository.GenerateStub<IConnectToTheNeocronApi>();
+            neocronApi
+                .Stub(x => x.GetOutpostForSector(coordinates.ToSectorCode()))
+                .Return(new ExtendedOutpost());
+
+            var outpostService = new OutpostService(outpostLocations, ownershipService, neocronApi);
 
             var outpostData = outpostService.GetOutpostDataAt(coordinates);
 
             Assert.That(outpostData.CurrentOwners, Is.EqualTo(expectedClan));
+        }
+
+        [Test]
+        public void Does_not_call_NeocronApi_when_no_outpost_exists_at_coordinates()
+        {
+            var coordinates = new Coordinates("99", 'x');
+            var expectedClan = Clan.NotApplicable();
+
+            var ownershipService = MockRepository.GenerateStub<IRetrieveOwnershipInformation>();
+            ownershipService
+                .Stub(x => x.GetCurrentOwners(coordinates))
+                .Return(expectedClan);
+
+            var outpostLocations = MockRepository.GenerateStub<IKnowWhereOutpostsAre>();
+            outpostLocations
+                .Stub(x => x.OutpostExistsAt(coordinates))
+                .Return(false);
+
+            var neocronApi = MockRepository.GenerateMock<IConnectToTheNeocronApi>();
+
+            var outpostService = new OutpostService(outpostLocations, ownershipService, neocronApi);
+
+            outpostService.GetOutpostDataAt(coordinates);
+
+            neocronApi
+                .AssertWasNotCalled(x => x.GetOutpostForSector(coordinates.ToSectorCode()));
         }
     }
 }

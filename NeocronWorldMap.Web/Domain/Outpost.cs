@@ -2,7 +2,10 @@ namespace NeocronWorldMap.Web.Domain
 {
     public class Outpost : IHaveOutpostData
     {
-        public Outpost(string name, NeocronZone zone, IHaveOwnershipInformation currentOwners)
+        public Outpost(
+            string name, 
+            NeocronZone zone, 
+            ICanOwnOutposts currentOwners)
         {
             Name = name;
             Zone = zone;
@@ -11,6 +14,6 @@ namespace NeocronWorldMap.Web.Domain
 
         public string Name { get; private set; }
         public NeocronZone Zone { get; private set; }
-        public IHaveOwnershipInformation CurrentOwners { get; private set; }
+        public ICanOwnOutposts CurrentOwners { get; private set; }
     }
 }

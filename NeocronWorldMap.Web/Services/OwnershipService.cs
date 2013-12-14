@@ -1,4 +1,5 @@
-﻿using NeocronWorldMap.Web.Domain;
+﻿using System;
+using NeocronWorldMap.Web.Domain;
 using NeocronWorldMap.Web.NeocronPublicInterface;
 using NeocronWorldMap.Web.Services.Repositories;
 using Clan = NeocronWorldMap.Web.Domain.Clan;
@@ -14,15 +15,21 @@ namespace NeocronWorldMap.Web.Services
             _neocronApi = neocronApi;
         }
 
-        public IHaveOwnershipInformation GetCurrentOwners(Coordinates coordinates)
+        public ICanOwnOutposts GetCurrentOwners(Coordinates coordinates)
         {
             var sectorCode = coordinates.ToSectorCode();
             var outpostForSector = _neocronApi.GetOutpostForSector(sectorCode);
-
+            
             var name = outpostForSector.Clan.Name;
             var faction = BuildFaction(outpostForSector);
+            var timeOwnedFor = GetTimeOwnedFor(outpostForSector);
 
-            return new Clan(name, faction);
+            return new Clan(name, faction, timeOwnedFor);
+        }
+
+        private static TimeSpan GetTimeOwnedFor(ExtendedOutpost outpostForSector)
+        {
+            return DateTime.Now - outpostForSector.ConquerTime;
         }
 
         private static Faction BuildFaction(ExtendedOutpost outpostForSector)

@@ -12,8 +12,8 @@ namespace NeocronWorldMap.Web.Services.Repositories
 
         public NeocronApi()
         {
-            _sessionManagementSoapClient = new NeocronSessionManagement.SessionManagementSoapClient();
-            _publicInterfaceSoapClient = new NeocronPublicInterface.PublicInterfaceSoapClient();
+            _sessionManagementSoapClient = new SessionManagementSoapClient();
+            _publicInterfaceSoapClient = new PublicInterfaceSoapClient();
         }
 
         public ExtendedOutpost GetOutpostForSector(int sectorCode)
@@ -22,14 +22,7 @@ namespace NeocronWorldMap.Web.Services.Repositories
 
             var outpostWithSectorCode = outpostListResult.Outposts.First(outpost => outpost.Id == sectorCode);
 
-            CloseSession();
-
             return outpostWithSectorCode;
-        }
-
-        private void CloseSession()
-        {
-            _sessionManagementSoapClient.Close();
         }
 
         private OutpostListResult GetOutposts()
@@ -43,6 +36,11 @@ namespace NeocronWorldMap.Web.Services.Repositories
         private Guid GetSessionToken()
         {
             return _sessionManagementSoapClient.Login("pilotz", "bnooey12").Token;
+        }
+
+        public OutpostListResult GetAllOutposts()
+        {
+            return GetOutposts();
         }
     }
 }

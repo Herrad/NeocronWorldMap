@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Web.Mvc;
 using NeocronWorldMap.Web.Controllers.Actions;
 using NeocronWorldMap.Web.Domain;
@@ -29,6 +30,9 @@ namespace NeocronWorldMap.Web.StructureMap
                             scanner.AddAllTypesOf<IRetrieveOwnershipInformation>();
                             scanner.AddAllTypesOf<IConnectToTheNeocronApi>();
                         });
+
+                    x.For<IConnectToTheNeocronApi>().Use<InMemoryApi>();
+                    x.For<InMemoryApi>().LifecycleIs(Lifecycles.GetLifecycle(InstanceScope.Singleton));
 
                     x.For<OutpostLocations>().LifecycleIs(Lifecycles.GetLifecycle(InstanceScope.Singleton));
                 });

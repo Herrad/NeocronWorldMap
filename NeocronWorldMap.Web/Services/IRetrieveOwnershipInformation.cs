@@ -4,6 +4,6 @@ namespace NeocronWorldMap.Web.Services
 {
     public interface IRetrieveOwnershipInformation
     {
-        IHaveOwnershipInformation GetCurrentOwners(Coordinates coordinates);
+        ICanOwnOutposts GetCurrentOwners(Coordinates coordinates);
     }
 }
