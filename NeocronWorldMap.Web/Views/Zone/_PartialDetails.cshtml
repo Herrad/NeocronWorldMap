@@ -1,6 +1,6 @@
 ﻿@model NeocronWorldMap.Web.ViewModels.ZoneDetailsViewModel
 
 <h2>@Model.ZoneName - @Model.OutpostViewModel.Name</h2>
-<div class="clan-information owners">
+<div class="clan-information">
     @Html.Partial("_Owners", Model.OutpostViewModel.OutpostOwnershipViewModel)
 </div>

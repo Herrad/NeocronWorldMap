@@ -5,14 +5,25 @@ h2{ margin: 0;}
 
 .page-title {padding: 10px 0 20px 15px; }
 
-.world-grid{ min-width: 962px;height: 680px;margin-left: auto;margin-right: auto;background: url("../Images/worldmap.jpg") no-repeat;border-top: #957C03 2px solid;border-bottom: #957C03 2px solid;}
+.world-grid{ min-width: 962px;height: 680px;background: url("../Images/worldmap.jpg") no-repeat;border-top: #957C03 2px solid;border-bottom: #957C03 2px solid;}
     .world-grid .hover td:hover {padding: 0;background: #ddd;background: rgba(224, 224, 224, 0.5);border: 1px dashed #ddd;cursor: pointer;}
         .world-grid .hover td a { font-size: 0.5em;}
 
 
-.zone-detail { margin: 15px;padding-left: 15px;background: #303032 no-repeat;border: #957C03 1px solid;}
-    .zone-detail div { padding-bottom: 10px;}
+.zone-detail { margin: 15px;padding: 15px;background: #303032 no-repeat;border: #957C03 1px solid;}
     .zone-detail h2{margin: 10px 10px 10px 0;border-bottom: #957C03 2px solid;width: 300px;}
+    
+.owners { background: black;border: #957C03 1px solid;}
+    .owners .owner-details { list-style: none;padding: 15px;margin: 0;}
+    .owners .owner-details li { padding-bottom: 5px;}
+    .owners .owner-details li:last-child { padding-bottom: 0;}
+
+@media only screen
+and (min-width:1400px) {
+    .zone-detail{ position: absolute;top: 10px;left: 10px;background: black;}
+    .owners{background: #303032; }
+    #content{ margin-left: 400px;}
+}
 
 .hidden{ display: none;}
 
