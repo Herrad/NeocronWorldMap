@@ -25,8 +25,7 @@ namespace Test.NeocronWorldMap.Web.Services
 
             var outpostService = new OutpostService(
                 new OutpostLocations(), 
-                MockRepository.GenerateStub<IRetrieveOwnershipInformation>(), 
-                neocronApi);
+                MockRepository.GenerateStub<IRetrieveOwnershipInformation>());
 
 
             var outpost = outpostService.GetOutpostDataAt(coordinates);
@@ -48,8 +47,7 @@ namespace Test.NeocronWorldMap.Web.Services
 
             var outpostService = new OutpostService(
                 new OutpostLocations(), 
-                MockRepository.GenerateStub<IRetrieveOwnershipInformation>(), 
-                neocronApi);
+                MockRepository.GenerateStub<IRetrieveOwnershipInformation>());
 
 
             var outpost = outpostService.GetOutpostDataAt(coordinates);
@@ -79,7 +77,7 @@ namespace Test.NeocronWorldMap.Web.Services
                 .Stub(x => x.GetOutpostForSector(coordinates.ToSectorCode()))
                 .Return(new ExtendedOutpost());
 
-            var outpostService = new OutpostService(outpostLocations, ownershipService, neocronApi);
+            var outpostService = new OutpostService(outpostLocations, ownershipService);
 
             var outpostData = outpostService.GetOutpostDataAt(coordinates);
 
@@ -107,7 +105,7 @@ namespace Test.NeocronWorldMap.Web.Services
                 .Stub(x => x.GetOutpostForSector(coordinates.ToSectorCode()))
                 .Return(new ExtendedOutpost());
 
-            var outpostService = new OutpostService(outpostLocations, ownershipService, neocronApi);
+            var outpostService = new OutpostService(outpostLocations, ownershipService);
 
             var outpostData = outpostService.GetOutpostDataAt(coordinates);
 
@@ -132,7 +130,7 @@ namespace Test.NeocronWorldMap.Web.Services
 
             var neocronApi = MockRepository.GenerateMock<IConnectToTheNeocronApi>();
 
-            var outpostService = new OutpostService(outpostLocations, ownershipService, neocronApi);
+            var outpostService = new OutpostService(outpostLocations, ownershipService);
 
             outpostService.GetOutpostDataAt(coordinates);
 
