@@ -6,7 +6,7 @@ h2{ margin: 0;}
 .page-title {padding: 10px 0 20px 15px; }
 
 .world-grid{ min-width: 962px;height: 680px;background: url("../Images/worldmap.jpg") no-repeat;border-top: #957C03 2px solid;border-bottom: #957C03 2px solid;}
-    .world-grid .hover td:hover {padding: 0;background: #ddd;background: rgba(224, 224, 224, 0.5);border: 1px dashed #ddd;cursor: pointer;}
+    .world-grid .hover td {padding: 0;cursor: pointer;}
         .world-grid .hover td a { font-size: 0.5em;}
 
 
@@ -17,13 +17,30 @@ h2{ margin: 0;}
     .owners .owner-details { list-style: none;padding: 15px;margin: 0;}
     .owners .owner-details li { padding-bottom: 5px;}
     .owners .owner-details li:last-child { padding-bottom: 0;}
-
+    
 @media only screen
 and (min-width:1400px) {
     .zone-detail{ position: absolute;top: 10px;left: 10px;background: black;}
     .owners{background: #303032; }
     #content{ margin-left: 400px;}
 }
+@media only screen
+and (min-width:1780px) {
+    #content{ margin-left: auto;}
+}
+.no-faction:hover             {background: #ddd;background: rgba(224, 224, 224, 0.5);border: 1px dashed #ddd;}
+.city-admin:hover             { background: #6FA13D;background: rgba(111, 161, 61, 0.5);border: 1px dashed #ddd;}
+.diamond-real-estate:hover    { background: #3D3DA1;background: rgba(61, 61, 161, 0.5);border: 1px dashed #ddd;}
+.next:hover                   { background: #8B3D3D;background: rgba(139, 61, 61, 0.5);border: 1px dashed #ddd;}
+.tangent-technologies:hover   { background: #A1A16F;background: rgba(161, 161, 111, 0.5);border: 1px dashed #ddd;}
+.biotech:hover                { background: #3D3D64;background: rgba(61, 61, 100, 0.5);border: 1px dashed #ddd;}
+.protopharm:hover             { background: #6FA1A1;background: rgba(111, 161, 161, 0.5);border: 1px dashed #ddd;}
+.trunami-syndicate:hover      { background: #A16F6F;background: rgba(161, 111, 111, 0.5);border: 1px dashed #ddd;}
+.black-dragon:hover           {background: #505050;background: rgba(80, 80, 80, 0.5);border: 1px dashed #ddd;}
+.brotherhood-of-crahn:hover   { background: #6F3D6F;background: rgba(111, 61, 111, 0.5);border: 1px dashed #ddd;}
+.city-mercs:hover             { background: #3D6F3D;background: rgba(61, 111, 61, 0.5);border: 1px dashed #ddd;}
+.fallen-angels:hover          { background: #838383;background: rgba(131, 131, 131, 0.5);border: 1px dashed #ddd}
+.twilight-guardian:hover      { background: #8B783D;background: rgba(139, 120, 61, 0.5);border: 1px dashed #ddd;}
 
 .hidden{ display: none;}
 

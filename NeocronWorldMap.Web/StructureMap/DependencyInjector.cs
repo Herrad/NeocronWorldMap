@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using System.Web.Mvc;
 using NeocronWorldMap.Web.Controllers.Actions;
-using NeocronWorldMap.Web.Domain;
 using NeocronWorldMap.Web.Services;
 using NeocronWorldMap.Web.Services.Repositories;
 using NeocronWorldMap.Web.ViewModelBuilders;

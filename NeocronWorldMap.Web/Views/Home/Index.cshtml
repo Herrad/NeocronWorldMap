@@ -26,7 +26,7 @@
         <tr class="hover">
             @foreach(var xcoordinate in Model.XAxis)
             {
-                <td data-xcoordinate="@xcoordinate" data-ycoordinate="@ycoordinate">
+                <td data-xcoordinate="@xcoordinate" data-ycoordinate="@ycoordinate" class="no-faction">
                     <a href="/zone/details?xCoordinate=@xcoordinate&yCoordinate=@ycoordinate">click meee!</a>
                 </td>
             }
