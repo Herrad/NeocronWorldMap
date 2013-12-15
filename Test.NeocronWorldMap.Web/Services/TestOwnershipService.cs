@@ -29,7 +29,7 @@ namespace Test.NeocronWorldMap.Web.Services
                 .Stub(x => x.GetOutpostForSector(coordinates.ToSectorCode()))
                 .Return(extendedOutpost);
 
-            var clanRepository = new OwnershipService(neocronApi);
+            var clanRepository = new OwnershipService(neocronApi, new FactionFactory());
 
             var currentOwners = clanRepository.GetCurrentOwners(outpost.Zone.Coordinates);
 
@@ -61,7 +61,7 @@ namespace Test.NeocronWorldMap.Web.Services
                 .Stub(x => x.GetOutpostForSector(coordinates.ToSectorCode()))
                 .Return(extendedOutpost);
 
-            var clanRepository = new OwnershipService(neocronApi);
+            var clanRepository = new OwnershipService(neocronApi, new FactionFactory());
 
             var currentOwners = clanRepository.GetCurrentOwners(outpost.Zone.Coordinates);
 
@@ -79,7 +79,7 @@ namespace Test.NeocronWorldMap.Web.Services
                 .Stub(x => x.GetOutpostForSector(coordinates.ToSectorCode()))
                 .Return(new ExtendedOutpost { Clan = new Clan(), ConquerTime = conquerTime });
 
-            var ownershipService = new OwnershipService(neocronApi);
+            var ownershipService = new OwnershipService(neocronApi, new FactionFactory());
 
             var clan = ownershipService.GetCurrentOwners(coordinates);
 

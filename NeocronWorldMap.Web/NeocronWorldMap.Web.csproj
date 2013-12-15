@@ -174,7 +174,9 @@
     <Compile Include="ViewModelBuilders\IBuildGridViewModels.cs" />
     <Compile Include="ViewModelBuilders\IBuildOutpostViewModels.cs" />
     <Compile Include="ViewModelBuilders\IBuildZoneDetailsViewModels.cs" />
+    <Compile Include="ViewModelBuilders\IFormatTimeSpans.cs" />
     <Compile Include="ViewModelBuilders\OutpostViewModelBuilder.cs" />
+    <Compile Include="ViewModelBuilders\TimeFormatter.cs" />
     <Compile Include="ViewModelBuilders\ZoneDetailsViewModelBuilder.cs" />
     <Compile Include="ViewModels\GridViewModel.cs" />
     <Compile Include="ViewModels\OutpostOwnershipViewModel.cs" />

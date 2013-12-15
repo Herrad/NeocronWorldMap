@@ -13,9 +13,9 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
         {
             const string expectedName = "foo";
 
-            var outpostViewModelBuilder = new OutpostViewModelBuilder();
+            var outpostViewModelBuilder = new OutpostViewModelBuilder(new TimeFormatter());
 
-            var currentOwners = new Clan(null, new Faction(null), new TimeSpan());
+            var currentOwners = new Clan(null, new Faction("foo faction"), new TimeSpan());
 
             var outpost = new Outpost(expectedName, null, currentOwners);
 
@@ -32,7 +32,7 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
             const string expectedFactionName = "foo faction";
             var timeOwnedFor = new TimeSpan(1, 2, 3, 4);
 
-            var outpostViewModelBuilder = new OutpostViewModelBuilder();
+            var outpostViewModelBuilder = new OutpostViewModelBuilder(new TimeFormatter());
 
             var faction = new Faction(expectedFactionName);
             var currentOwners = new Clan(expectedClanName, faction, timeOwnedFor);
@@ -46,6 +46,7 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
             Assert.That(outpostOwnershipViewModel, Is.Not.Null);
             Assert.That(outpostOwnershipViewModel.ClanName, Is.EqualTo(expectedClanName));
             Assert.That(outpostOwnershipViewModel.FactionName, Is.EqualTo(expectedFactionName));
+            Assert.That(outpostViewModel.OutpostOwnershipViewModel.FactionClass, Is.EqualTo("foo-faction"));
         }
 
         [TestCase(1, "1 day 02:03:04")]
@@ -54,7 +55,7 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
         {
             var timeOwnedFor = new TimeSpan(days, 2, 3, 4);
             
-            var outpostViewModelBuilder = new OutpostViewModelBuilder();
+            var outpostViewModelBuilder = new OutpostViewModelBuilder(new TimeFormatter());
 
             var faction = new Faction("faction");
             var currentOwners = new Clan("clan", faction, timeOwnedFor);
