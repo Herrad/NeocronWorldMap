@@ -1,10 +1,9 @@
 ﻿@model NeocronWorldMap.Web.ViewModels.OutpostOwnershipViewModel
 
 <div class="owners">
-    <ul class="owner-details">
-        <li>Owning clan name: @Model.ClanName</li>
-        <li>Owning faction name: @Model.FactionName</li>
+    <ul class="owner-details @Model.FactionClass text">
+        <li>Clan: @Model.ClanName</li>
+        <li class="@Model.FactionClass text">Faction: @Model.FactionName</li>
         <li>Owned for: @Model.TimeOwnedFor</li>
-        <li>More clan information coming soon...</li>
     </ul>
 </div>

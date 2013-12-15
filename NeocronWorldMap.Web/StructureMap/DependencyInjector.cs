@@ -1,5 +1,6 @@
 using System.Web.Mvc;
 using NeocronWorldMap.Web.Controllers.Actions;
+using NeocronWorldMap.Web.Domain;
 using NeocronWorldMap.Web.Services;
 using NeocronWorldMap.Web.Services.Repositories;
 using NeocronWorldMap.Web.ViewModelBuilders;
@@ -27,6 +28,8 @@ namespace NeocronWorldMap.Web.StructureMap
                             scanner.AddAllTypesOf<IKnowWhereOutpostsAre>();        
                             scanner.AddAllTypesOf<IRetrieveOwnershipInformation>();
                             scanner.AddAllTypesOf<IConnectToTheNeocronApi>();
+                            scanner.AddAllTypesOf<IBuildFactions>();
+                            scanner.AddAllTypesOf<IFormatTimeSpans>();
                         });
 
                     x.For<IConnectToTheNeocronApi>().Use<InMemoryApi>();

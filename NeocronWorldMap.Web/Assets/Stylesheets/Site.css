@@ -14,7 +14,7 @@ h2{ margin: 0;}
     .zone-detail h2{margin: 10px 10px 10px 0;border-bottom: #957C03 2px solid;width: 300px;}
     
 .owners { background: black;border: #957C03 1px solid;}
-    .owners .owner-details { list-style: none;padding: 15px;margin: 0;}
+    .owners .owner-details { list-style: none;padding: 15px;margin: 0;font-weight: bold;}
     .owners .owner-details li { padding-bottom: 5px;}
     .owners .owner-details li:last-child { padding-bottom: 0;}
     
@@ -28,19 +28,32 @@ and (min-width:1400px) {
 and (min-width:1780px) {
     #content{ margin-left: auto;}
 }
-.no-faction:hover             {background: #ddd;background: rgba(224, 224, 224, 0.5);border: 1px dashed #ddd;}
-.city-admin:hover             { background: #6FA13D;background: rgba(111, 161, 61, 0.5);border: 1px dashed #ddd;}
-.diamond-real-estate:hover    { background: #3D3DA1;background: rgba(61, 61, 161, 0.5);border: 1px dashed #ddd;}
-.next:hover                   { background: #8B3D3D;background: rgba(139, 61, 61, 0.5);border: 1px dashed #ddd;}
-.tangent-technologies:hover   { background: #A1A16F;background: rgba(161, 161, 111, 0.5);border: 1px dashed #ddd;}
-.biotech:hover                { background: #3D3D64;background: rgba(61, 61, 100, 0.5);border: 1px dashed #ddd;}
-.protopharm:hover             { background: #6FA1A1;background: rgba(111, 161, 161, 0.5);border: 1px dashed #ddd;}
-.trunami-syndicate:hover      { background: #A16F6F;background: rgba(161, 111, 111, 0.5);border: 1px dashed #ddd;}
-.black-dragon:hover           {background: #505050;background: rgba(80, 80, 80, 0.5);border: 1px dashed #ddd;}
-.brotherhood-of-crahn:hover   { background: #6F3D6F;background: rgba(111, 61, 111, 0.5);border: 1px dashed #ddd;}
-.city-mercs:hover             { background: #3D6F3D;background: rgba(61, 111, 61, 0.5);border: 1px dashed #ddd;}
-.fallen-angels:hover          { background: #838383;background: rgba(131, 131, 131, 0.5);border: 1px dashed #ddd}
-.twilight-guardian:hover      { background: #8B783D;background: rgba(139, 120, 61, 0.5);border: 1px dashed #ddd;}
+.no-faction-grid:hover              { background: #ddd;background: rgba(224, 224, 224, 0.5);border: 1px dashed #ddd;}
+.cityadmin-grid:hover               { background: #6FA13D;background: rgba(111, 161, 61, 0.5);border: 1px dashed #ddd;}
+.diamond-real-estate-grid:hover     { background: #3D3DA1;background: rgba(61, 61, 161, 0.5);border: 1px dashed #ddd;}
+.next-grid:hover                    { background: #8B3D3D;background: rgba(139, 61, 61, 0.5);border: 1px dashed #ddd;}
+.tangent-technologies-grid:hover    { background: #A1A16F;background: rgba(161, 161, 111, 0.5);border: 1px dashed #ddd;}
+.biotech-grid:hover                 { background: #3D3D64;background: rgba(61, 61, 100, 0.5);border: 1px dashed #ddd;}
+.protopharm-grid:hover              { background: #6FA1A1;background: rgba(111, 161, 161, 0.5);border: 1px dashed #ddd;}
+.trunami-syndicate-grid:hover       { background: #A16F6F;background: rgba(161, 111, 111, 0.5);border: 1px dashed #ddd;}
+.black-dragon-grid:hover            { background: #505050;background: rgba(80, 80, 80, 0.5);border: 1px dashed #ddd;}
+.brotherhood-of-crahn-grid:hover    { background: #6F3D6F;background: rgba(111, 61, 111, 0.5);border: 1px dashed #ddd;}
+.the-city-mercs-grid:hover          { background: #3D6F3D;background: rgba(61, 111, 61, 0.5);border: 1px dashed #ddd;}
+.fallen-angels-grid:hover           { background: #838383;background: rgba(131, 131, 131, 0.5);border: 1px dashed #ddd}
+.twilight-guardian-grid:hover       { background: #8B783D;background: rgba(139, 120, 61, 0.5);border: 1px dashed #ddd;}
+
+.cityadmin.text               { color: #6FA13D;}
+.diamond-real-estate.text     { color: #3D3DA1;}
+.next.text                    { color: #8B3D3D;}
+.tangent-technologies.text    { color: #A1A16F;}
+.biotech.text                 { color: #3D3D64;}
+.protopharm.text              { color: #6FA1A1;}
+.trunami-syndicate.text       { color: #A16F6F;}
+.black-dragon.text            { color: #505050;}
+.brotherhood-of-crahn.text    { color: #6F3D6F;}
+.the-city-mercs.text          { color: #3D6F3D;}
+.fallen-angels.text           { color: #838383;}
+.twilight-guardian.text       { color: #8B783D;}
 
 .hidden{ display: none;}
 

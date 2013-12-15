@@ -26,7 +26,7 @@ namespace NeocronWorldMap.Web.ViewModelBuilders
 
         private string FormatFactionNameForCSSClass(string factionName)
         {
-            return factionName.ToLower().Replace(' ', '-');
+            return factionName.ToLower().Replace(' ', '-').Replace(".", string.Empty);
         }
     }
 }

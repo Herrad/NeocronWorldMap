@@ -29,7 +29,7 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
         public void Sets_OwnerViewModel()
         {
             const string expectedClanName = "foo clan";
-            const string expectedFactionName = "foo faction";
+            const string expectedFactionName = "foo faction.dot";
             var timeOwnedFor = new TimeSpan(1, 2, 3, 4);
 
             var outpostViewModelBuilder = new OutpostViewModelBuilder(new TimeFormatter());
@@ -46,7 +46,7 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
             Assert.That(outpostOwnershipViewModel, Is.Not.Null);
             Assert.That(outpostOwnershipViewModel.ClanName, Is.EqualTo(expectedClanName));
             Assert.That(outpostOwnershipViewModel.FactionName, Is.EqualTo(expectedFactionName));
-            Assert.That(outpostViewModel.OutpostOwnershipViewModel.FactionClass, Is.EqualTo("foo-faction"));
+            Assert.That(outpostViewModel.OutpostOwnershipViewModel.FactionClass, Is.EqualTo("foo-factiondot"));
         }
 
         [TestCase(1, "1 day 02:03:04")]
