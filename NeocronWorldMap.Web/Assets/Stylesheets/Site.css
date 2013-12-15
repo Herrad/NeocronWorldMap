@@ -11,12 +11,13 @@ h2{ margin: 0;}
 
 
 .zone-detail { margin: 15px;padding: 15px;background: #303032 no-repeat;border: #957C03 1px solid;}
-    .zone-detail h2{margin: 10px 10px 10px 0;border-bottom: #957C03 2px solid;width: 300px;}
+    .zone-detail h2{margin: 10px 0;border-bottom: #957C03 2px solid;width: 300px;}
     
 .owners { background: black;border: #957C03 1px solid;}
     .owners .owner-details { list-style: none;padding: 15px;margin: 0;font-weight: bold;}
     .owners .owner-details li { padding-bottom: 5px;}
     .owners .owner-details li:last-child { padding-bottom: 0;}
+        .owners .owner-details .clan-name { text-decoration: underline;}
     
 @media only screen
 and (min-width:1400px) {
