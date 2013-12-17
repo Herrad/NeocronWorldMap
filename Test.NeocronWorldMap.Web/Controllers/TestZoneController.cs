@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Web.Mvc;
+using NUnit.Framework;
 using NeocronWorldMap.Web.Controllers;
 using NeocronWorldMap.Web.Controllers.Actions;
 using NeocronWorldMap.Web.ViewModels;
@@ -93,6 +94,31 @@ namespace Test.NeocronWorldMap.Web.Controllers
 
             detailsAction
                 .AssertWasCalled(x => x.Execute("99", 'x', zoneController));
+        }
+
+        [Test]
+        public void OutpostsOwnedByFaction_returns_JsonResult()
+        {
+            var zoneController = new ZoneController(null);
+
+            var result = zoneController.OutpostsOwnedByFaction();
+
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result, Is.TypeOf<JsonResult>());
+        }
+
+        [Test]
+        public void Json_from_returns_jsonified_object_set_OutpostsOwnedByFaction()
+        {
+            var objectToJsonify = new {name = "foo"};
+
+            var zoneController = new ZoneController(null);
+
+            zoneController.SetJsonObject(objectToJsonify);
+
+            var result = zoneController.OutpostsOwnedByFaction();
+
+            Assert.That(result.Data, Is.EqualTo(objectToJsonify));
         }
     }
 }

@@ -124,6 +124,7 @@
     <Compile Include="Controllers\Actions\IndexAction.cs" />
     <Compile Include="Controllers\Actions\ZoneDetailsAction.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IRenderJsonViews.cs" />
     <Compile Include="Controllers\IRenderViews.cs" />
     <Compile Include="Controllers\ZoneController.cs" />
     <Compile Include="Domain\Clan.cs" />
