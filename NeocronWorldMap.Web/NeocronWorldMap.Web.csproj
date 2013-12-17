@@ -122,6 +122,7 @@
     <Compile Include="Controllers\Actions\IActionIndexRequests.cs" />
     <Compile Include="Controllers\Actions\IActionZoneDetailsRequests.cs" />
     <Compile Include="Controllers\Actions\IndexAction.cs" />
+    <Compile Include="Controllers\Actions\OutpostOwnedByFactionAction.cs" />
     <Compile Include="Controllers\Actions\ZoneDetailsAction.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IRenderJsonViews.cs" />

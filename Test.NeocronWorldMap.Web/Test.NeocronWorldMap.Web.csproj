@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Action\TestIndexAction.cs" />
+    <Compile Include="Controllers\Action\TestOutpostOwnedByFactionAction.cs" />
     <Compile Include="Controllers\Action\TestZoneDetailsAction.cs" />
     <Compile Include="Controllers\TestHomeController.cs" />
     <Compile Include="Controllers\TestZoneController.cs" />
