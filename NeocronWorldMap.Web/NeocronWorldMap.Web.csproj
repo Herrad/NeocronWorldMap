@@ -130,10 +130,12 @@
     <Compile Include="Controllers\OutpostListController.cs" />
     <Compile Include="Controllers\ZoneController.cs" />
     <Compile Include="Domain\Clan.cs" />
+    <Compile Include="Domain\CoordinateFactory.cs" />
     <Compile Include="Domain\Coordinates.cs" />
     <Compile Include="Domain\Faction.cs" />
     <Compile Include="Domain\FactionFactory.cs" />
     <Compile Include="Domain\Factions.cs" />
+    <Compile Include="Domain\IBuildCoordinatesFromSectorIds.cs" />
     <Compile Include="Domain\IHaveOutpostData.cs" />
     <Compile Include="Domain\IOwnOutposts.cs" />
     <Compile Include="Domain\IHaveZoneDetails.cs" />

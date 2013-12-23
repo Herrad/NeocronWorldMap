@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using NeocronWorldMap.Web.Domain;
 
 namespace NeocronWorldMap.Web.Services
@@ -67,6 +68,11 @@ namespace NeocronWorldMap.Web.Services
         public bool OutpostExistsAt(Coordinates coordinates)
         {
             return _names.ContainsKey(coordinates);
+        }
+
+        public IEnumerable<Coordinates> GetCoordinatesOfAllOutposts()
+        {
+            return _names.Keys.OrderBy(x => x.YCoordinate);
         }
     }
 }

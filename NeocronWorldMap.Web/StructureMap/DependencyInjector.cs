@@ -32,7 +32,8 @@ namespace NeocronWorldMap.Web.StructureMap
                             scanner.AddAllTypesOf<IFormatTimeSpans>();
                         });
 
-                    x.For<IConnectToTheNeocronApi>().Use<NeocronApi>();
+                    x.For<InMemoryApi>().LifecycleIs(Lifecycles.GetLifecycle(InstanceScope.Singleton));
+                    x.For<IConnectToTheNeocronApi>().Use<InMemoryApi>();
                     x.For<OutpostLocations>().LifecycleIs(Lifecycles.GetLifecycle(InstanceScope.Singleton));
                 });
 

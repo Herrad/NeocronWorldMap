@@ -27,14 +27,10 @@ namespace NeocronWorldMap.Web.Services.Repositories
 
         public OutpostListResult GetOutposts()
         {
-            OutpostListResult outpostListResult;
-            using (_sessionManagementSoapClient)
-            {
-                var sessionDetails = _sessionManagementSoapClient.Login("pilotz", "bnooey12");
-                var token = sessionDetails.Token;
+            var sessionDetails = _sessionManagementSoapClient.Login("pilotz", "bnooey12");
+            var token = sessionDetails.Token;
 
-                outpostListResult = _publicInterfaceSoapClient.GetOutposts(token, "Titan");
-            }
+            var outpostListResult = _publicInterfaceSoapClient.GetOutposts(token, "Titan");
             return outpostListResult;
         }
 

@@ -4,11 +4,12 @@
     ViewBag.Title = "Outposts";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@section Header
+{}
 <h2>Outposts</h2>
 <ul>
     @foreach (var outpost in Model)
     {
-        <li>[@outpost.Coordinates.XCoordinate, @outpost.Coordinates.YCoordinate] @outpost.Name, @outpost.Faction</li>
+        <li>@char.ToUpper(outpost.Coordinates.YCoordinate)@outpost.Coordinates.XCoordinate @outpost.Name, @outpost.Faction.Name</li>
     }
 </ul>
