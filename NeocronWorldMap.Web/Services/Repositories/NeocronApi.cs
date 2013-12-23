@@ -25,17 +25,17 @@ namespace NeocronWorldMap.Web.Services.Repositories
             return outpostWithSectorCode;
         }
 
-        private OutpostListResult GetOutposts()
+        public OutpostListResult GetOutposts()
         {
-            var token = GetSessionToken();
+            OutpostListResult outpostListResult;
+            using (_sessionManagementSoapClient)
+            {
+                var sessionDetails = _sessionManagementSoapClient.Login("pilotz", "bnooey12");
+                var token = sessionDetails.Token;
 
-            var outpostListResult = _publicInterfaceSoapClient.GetOutposts(token, "Titan");
+                outpostListResult = _publicInterfaceSoapClient.GetOutposts(token, "Titan");
+            }
             return outpostListResult;
-        }
-
-        private Guid GetSessionToken()
-        {
-            return _sessionManagementSoapClient.Login("pilotz", "bnooey12").Token;
         }
 
         public OutpostListResult GetAllOutposts()

@@ -6,7 +6,7 @@ namespace NeocronWorldMap.Web.Services.Repositories
     public class InMemoryApi : IConnectToTheNeocronApi
     {
         private readonly NeocronApi _api;
-        private ExtendedOutpost[] _outposts;
+        private OutpostListResult _outposts;
 
         public InMemoryApi(NeocronApi api)
         {
@@ -16,12 +16,17 @@ namespace NeocronWorldMap.Web.Services.Repositories
 
         private void SetupList()
         {
-            _outposts = _api.GetAllOutposts().Outposts;
+            _outposts = _api.GetAllOutposts();
         }
 
         public ExtendedOutpost GetOutpostForSector(int sectorCode)
         {
-            return _outposts.First(x => x.Id == sectorCode);
+            return _outposts.Outposts.First(x => x.Id == sectorCode);
+        }
+
+        public OutpostListResult GetOutposts()
+        {
+            return _outposts;
         }
     }
 }

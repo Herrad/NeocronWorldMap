@@ -2,7 +2,7 @@
 
 namespace NeocronWorldMap.Web.Domain
 {
-    public interface ICanOwnOutposts
+    public interface IOwnOutposts
     {
         string Name { get; }
         Faction Faction { get; }

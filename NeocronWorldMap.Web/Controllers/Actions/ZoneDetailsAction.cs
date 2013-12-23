@@ -6,10 +6,10 @@ namespace NeocronWorldMap.Web.Controllers.Actions
 {
     public class ZoneDetailsAction : IActionZoneDetailsRequests
     {
-        private readonly IRetrieveOutpostInformation _outpostService;
+        private readonly IRetrieveOutpostInformationForZones _outpostService;
         private readonly IBuildZoneDetailsViewModels _zoneDetailsViewModelBuilder;
 
-        public ZoneDetailsAction(IRetrieveOutpostInformation outpostService, IBuildZoneDetailsViewModels zoneDetailsViewModelBuilder)
+        public ZoneDetailsAction(IRetrieveOutpostInformationForZones outpostService, IBuildZoneDetailsViewModels zoneDetailsViewModelBuilder)
         {
             _outpostService = outpostService;
             _zoneDetailsViewModelBuilder = zoneDetailsViewModelBuilder;

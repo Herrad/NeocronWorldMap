@@ -2,7 +2,7 @@
 
 namespace NeocronWorldMap.Web.Domain
 {
-    public class Clan : ICanOwnOutposts
+    public class Clan : IOwnOutposts
     {
         protected bool Equals(Clan other)
         {
@@ -25,7 +25,7 @@ namespace NeocronWorldMap.Web.Domain
         public Faction Faction { get; private set; }
         public TimeSpan TimeOwnedFor { get; private set; }
 
-        public static ICanOwnOutposts NotApplicable()
+        public static IOwnOutposts NotApplicable()
         {
             const string notApplicable = "Not applicable";
             return new Clan(notApplicable, new Faction(notApplicable), new TimeSpan());

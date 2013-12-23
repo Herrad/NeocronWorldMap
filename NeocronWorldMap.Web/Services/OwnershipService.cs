@@ -17,7 +17,7 @@ namespace NeocronWorldMap.Web.Services
             _factionFactory = factionFactory;
         }
 
-        public ICanOwnOutposts GetCurrentOwners(Coordinates coordinates)
+        public IOwnOutposts GetCurrentOwners(Coordinates coordinates)
         {
             var sectorCode = coordinates.ToSectorCode();
             var outpostForSector = _neocronApi.GetOutpostForSector(sectorCode);

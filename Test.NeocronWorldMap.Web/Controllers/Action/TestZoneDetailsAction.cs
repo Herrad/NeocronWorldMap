@@ -26,7 +26,7 @@ namespace Test.NeocronWorldMap.Web.Controllers.Action
                 .Stub(x => x.Build(null))
                 .Return(zoneDetailsViewModel);
 
-            var outpostService = MockRepository.GenerateStub<IRetrieveOutpostInformation>();
+            var outpostService = MockRepository.GenerateStub<IRetrieveOutpostInformationForZones>();
             
             var detailsAction = new ZoneDetailsAction(outpostService, viewModelBuilder);
 
@@ -40,7 +40,7 @@ namespace Test.NeocronWorldMap.Web.Controllers.Action
         {
             var outpostData = MockRepository.GenerateStub<IHaveOutpostData>();
 
-            var service = MockRepository.GenerateStub<IRetrieveOutpostInformation>();
+            var service = MockRepository.GenerateStub<IRetrieveOutpostInformationForZones>();
             service
                 .Stub(x => x.GetOutpostDataAt(new Coordinates("99", 'x')))
                 .Return(outpostData);

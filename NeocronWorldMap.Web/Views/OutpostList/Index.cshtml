@@ -1,0 +1,14 @@
+﻿@model IEnumerable<NeocronWorldMap.Web.ViewModels.OutpostListViewModel>
+
+@{
+    ViewBag.Title = "Outposts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Outposts</h2>
+<ul>
+    @foreach (var outpost in Model)
+    {
+        <li>[@outpost.Coordinates.XCoordinate, @outpost.Coordinates.YCoordinate] @outpost.Name, @outpost.Faction</li>
+    }
+</ul>

@@ -127,6 +127,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IRenderJsonViews.cs" />
     <Compile Include="Controllers\IRenderViews.cs" />
+    <Compile Include="Controllers\OutpostListController.cs" />
     <Compile Include="Controllers\ZoneController.cs" />
     <Compile Include="Domain\Clan.cs" />
     <Compile Include="Domain\Coordinates.cs" />
@@ -134,7 +135,7 @@
     <Compile Include="Domain\FactionFactory.cs" />
     <Compile Include="Domain\Factions.cs" />
     <Compile Include="Domain\IHaveOutpostData.cs" />
-    <Compile Include="Domain\ICanOwnOutposts.cs" />
+    <Compile Include="Domain\IOwnOutposts.cs" />
     <Compile Include="Domain\IHaveZoneDetails.cs" />
     <Compile Include="Domain\NeocronZone.cs" />
     <Compile Include="Domain\Outpost.cs" />
@@ -159,7 +160,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Services\IKnowAboutOutposts.cs" />
-    <Compile Include="Services\IRetrieveOutpostInformation.cs" />
+    <Compile Include="Services\IKnowWhereOutpostsAre.cs" />
+    <Compile Include="Services\IRetrieveOutpostInformationForZones.cs" />
+    <Compile Include="Services\IRetrieveOutpostsOwnedByClans.cs" />
     <Compile Include="Services\IRetrieveOwnershipInformation.cs" />
     <Compile Include="Services\ISessionTokenFactory.cs" />
     <Compile Include="Services\OutpostLocations.cs" />
@@ -181,6 +184,7 @@
     <Compile Include="ViewModelBuilders\TimeFormatter.cs" />
     <Compile Include="ViewModelBuilders\ZoneDetailsViewModelBuilder.cs" />
     <Compile Include="ViewModels\GridViewModel.cs" />
+    <Compile Include="ViewModels\OutpostListViewModel.cs" />
     <Compile Include="ViewModels\OutpostOwnershipViewModel.cs" />
     <Compile Include="ViewModels\OutpostViewModel.cs" />
     <Compile Include="ViewModels\ZoneDetailsViewModel.cs" />
@@ -309,6 +313,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="Views\Zone\_Owners.cshtml" />
+    <Content Include="Views\OutpostList\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

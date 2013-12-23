@@ -4,6 +4,6 @@ namespace NeocronWorldMap.Web.Domain
     {
         string Name { get; }
         NeocronZone Zone { get; }
-        ICanOwnOutposts CurrentOwners { get; }
+        IOwnOutposts CurrentOwners { get; }
     }
 }
