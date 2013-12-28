@@ -10,6 +10,6 @@
 <ul>
     @foreach (var outpost in Model)
     {
-        <li>@char.ToUpper(outpost.Coordinates.YCoordinate)@outpost.Coordinates.XCoordinate @outpost.Name, @outpost.Faction.Name</li>
+        <li>@char.ToUpper(outpost.Coordinates.YCoordinate)@outpost.Coordinates.XCoordinate @outpost.Name, @outpost.Faction.Name, @outpost.SecurityCode</li>
     }
 </ul>

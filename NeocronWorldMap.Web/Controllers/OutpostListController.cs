@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
 using NeocronWorldMap.Web.Domain;
@@ -29,7 +28,7 @@ namespace NeocronWorldMap.Web.Controllers
                 outposts.Add(_outpostService.GetOutpostDataAt(outpostCoordinates));
             }
 
-            var outpostListViewModels = outposts.Select(outpost => new OutpostListViewModel(outpost.Name, outpost.Zone.Coordinates, outpost.CurrentOwners.Faction));
+            var outpostListViewModels = outposts.Select(outpost => new OutpostListViewModel(outpost.Name, outpost.Zone.Coordinates, outpost.CurrentOwners.Faction, null));
 
             return View(outpostListViewModels);
         }
