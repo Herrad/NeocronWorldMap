@@ -181,6 +181,7 @@
     <Compile Include="Services\Repositories\NeocronApi.cs" />
     <Compile Include="Services\SessionTokenFactory.cs" />
     <Compile Include="StructureMap\DependencyInjector.cs" />
+    <Compile Include="StructureMap\NeocronWorldMapRegistry.cs" />
     <Compile Include="StructureMap\StructureMapControllerActivator.cs" />
     <Compile Include="StructureMap\StructureMapDependencyResolver.cs" />
     <Compile Include="ViewModelBuilders\GridViewModelBuilder.cs" />
