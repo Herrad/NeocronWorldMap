@@ -25,6 +25,7 @@ namespace NeocronWorldMap.Web.StructureMap
                      scanner.AddAllTypesOf<IConnectToTheNeocronApi>();
                      scanner.AddAllTypesOf<IBuildFactions>();
                      scanner.AddAllTypesOf<IFormatTimeSpans>();
+                     scanner.AddAllTypesOf<IKnowFactionRelations>();
                  });
         }
     }

@@ -167,6 +167,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Services\FactionRelationsService.cs" />
     <Compile Include="Services\IKnowAboutOutposts.cs" />
     <Compile Include="Services\IKnowFactionRelations.cs" />
     <Compile Include="Services\IKnowWhereOutpostsAre.cs" />
