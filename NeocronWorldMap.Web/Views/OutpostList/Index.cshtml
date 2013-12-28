@@ -10,6 +10,14 @@
 <ul>
     @foreach (var outpost in Model)
     {
-        <li>@char.ToUpper(outpost.Coordinates.YCoordinate)@outpost.Coordinates.XCoordinate @outpost.Name, @outpost.Faction.Name, @outpost.SecurityCode</li>
+        <li>
+            @char.ToUpper(outpost.Coordinates.YCoordinate)@outpost.Coordinates.XCoordinate @outpost.Name, @outpost.Faction.Name, @outpost.SecurityCode 
+            <ul>
+                @foreach (var faction in outpost.FactionsAbleToGenRep)
+                {
+                    <li>@faction.Name</li>
+                }
+            </ul>
+        </li>
     }
 </ul>
