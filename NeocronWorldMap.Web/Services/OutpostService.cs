@@ -26,7 +26,7 @@ namespace NeocronWorldMap.Web.Services
 
             var currentOwners = Clan.NotApplicable();
 
-            IEnumerable<Faction> factionsAbleToGenRepToOutpost = null;
+            IEnumerable<Faction> factionsAbleToGenRepToOutpost = new List<Faction>(){new Faction("Anyone")};
             if (_outpostLocations.OutpostExistsAt(coordinates))
             {
                 currentOwners = _ownershipService.GetCurrentOwners(coordinates);

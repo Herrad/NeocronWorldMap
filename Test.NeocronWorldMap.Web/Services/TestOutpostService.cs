@@ -185,5 +185,34 @@ namespace Test.NeocronWorldMap.Web.Services
             Assert.That(outpost.FactionsAbleToGenRep.ToList()[1], Is.EqualTo(new Faction("N.E.X.T")));
             Assert.That(outpost.FactionsAbleToGenRep.ToList()[2], Is.EqualTo(new Faction("Black Dragon")));
         }
+
+        [Test]
+        public void When_no_outpost_available_in_zone_Factions_able_to_GR_is_set_to_Anyone()
+        {
+            const int securityCode = 1234;
+            var faction = new Faction("faction");
+
+            var coordinates = new Coordinates("99", 'x');
+
+            var ownershipService = MockRepository.GenerateStub<IRetrieveOwnershipInformation>();
+            ownershipService
+                .Stub(x => x.GetCurrentOwners(coordinates))
+                .Return(new Clan("foo", faction, new TimeSpan(), securityCode));
+
+            var outpostLocations = MockRepository.GenerateStub<IKnowWhereOutpostsAre>();
+            outpostLocations
+                .Stub(x => x.OutpostExistsAt(coordinates))
+                .Return(false);
+
+            var factionRelationService = MockRepository.GenerateStub<IKnowFactionRelations>();
+
+            var outpostService = new OutpostService(outpostLocations, ownershipService, factionRelationService);
+
+            var outpost = outpostService.GetOutpostDataAt(coordinates);
+
+            Assert.That(outpost.FactionsAbleToGenRep, Is.Not.Null);
+            Assert.That(outpost.FactionsAbleToGenRep, Is.Not.Empty);
+            Assert.That(outpost.FactionsAbleToGenRep.ToList()[0], Is.EqualTo(new Faction("Anyone")));
+        }
     }
 }
