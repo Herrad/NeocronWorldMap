@@ -168,6 +168,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Services\IKnowAboutOutposts.cs" />
+    <Compile Include="Services\IKnowFactionRelations.cs" />
     <Compile Include="Services\IKnowWhereOutpostsAre.cs" />
     <Compile Include="Services\IRetrieveOutpostInformationForZones.cs" />
     <Compile Include="Services\IRetrieveOutpostsOwnedByClans.cs" />

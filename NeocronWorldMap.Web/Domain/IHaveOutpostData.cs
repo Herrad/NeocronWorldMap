@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace NeocronWorldMap.Web.Domain
 {
     public interface IHaveOutpostData
@@ -5,5 +7,6 @@ namespace NeocronWorldMap.Web.Domain
         string Name { get; }
         NeocronZone Zone { get; }
         IOwnOutposts CurrentOwners { get; }
+        IEnumerable<Faction> FactionsAbleToGenRep { get; }
     }
 }
