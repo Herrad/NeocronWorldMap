@@ -5,6 +5,7 @@ using NeocronWorldMap.Web.Services;
 using NeocronWorldMap.Web.Services.Repositories;
 using NeocronWorldMap.Web.ViewModelBuilders;
 using StructureMap;
+using StructureMap.Configuration.DSL;
 using StructureMap.Pipeline;
 
 namespace NeocronWorldMap.Web.StructureMap
@@ -15,8 +16,23 @@ namespace NeocronWorldMap.Web.StructureMap
         {
             ObjectFactory.Configure(x =>
                 {
+                    x.AddRegistry(new NeocronWorldMapRegistry());
                     x.For<IControllerActivator>().Use<StructureMapControllerActivator>();
-                    x.Scan(scanner  =>
+
+                    x.For<IConnectToTheNeocronApi>().LifecycleIs(Lifecycles.GetLifecycle(InstanceScope.Singleton));
+                    x.For<IConnectToTheNeocronApi>().Use<InMemoryApi>();
+                    x.For<IKnowWhereOutpostsAre>().LifecycleIs(Lifecycles.GetLifecycle(InstanceScope.Singleton));
+                });
+
+            DependencyResolver.SetResolver(new StructureMapDependencyResolver(ObjectFactory.Container));
+        }
+    }
+
+    public class NeocronWorldMapRegistry : Registry
+    {
+        public NeocronWorldMapRegistry()
+        {
+            Scan(scanner  =>
                         {
                             scanner.TheCallingAssembly();
                             scanner.AddAllTypesOf<IActionZoneDetailsRequests>();
@@ -31,13 +47,6 @@ namespace NeocronWorldMap.Web.StructureMap
                             scanner.AddAllTypesOf<IBuildFactions>();
                             scanner.AddAllTypesOf<IFormatTimeSpans>();
                         });
-
-                    x.For<InMemoryApi>().LifecycleIs(Lifecycles.GetLifecycle(InstanceScope.Singleton));
-                    x.For<IConnectToTheNeocronApi>().Use<InMemoryApi>();
-                    x.For<OutpostLocations>().LifecycleIs(Lifecycles.GetLifecycle(InstanceScope.Singleton));
-                });
-
-            DependencyResolver.SetResolver(new StructureMapDependencyResolver(ObjectFactory.Container));
         }
     }
 }

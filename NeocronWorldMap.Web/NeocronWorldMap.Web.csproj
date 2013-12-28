@@ -45,7 +45,13 @@
     <Reference Include="Glimpse.Core">
       <HintPath>..\packages\Glimpse.1.8.0\lib\net45\Glimpse.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Glimpse.MiniProfiler">
+      <HintPath>..\packages\Glimpse.MiniProfiler.1.2.3\lib\net40\Glimpse.MiniProfiler.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MiniProfiler">
+      <HintPath>..\packages\MiniProfiler.2.1.0\lib\net40\MiniProfiler.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap">
       <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
     </Reference>
