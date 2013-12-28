@@ -23,7 +23,7 @@ namespace NeocronWorldMap.Web.ViewModelBuilders
             var factionClass = FormatFactionNameForCSSClass(ownershipInformation.Faction.Name);
             var factionsAbleToGenRep = outpost.FactionsAbleToGenRep.Select(x => x.Name);
 
-            var outpostOwnershipViewModel = new OutpostOwnershipViewModel(ownershipInformation.Name, ownershipInformation.Faction.Name, factionClass, timeOwnedFor, factionsAbleToGenRep);
+            var outpostOwnershipViewModel = new OutpostOwnershipViewModel(ownershipInformation.Name, ownershipInformation.Faction.Name, factionClass, timeOwnedFor, factionsAbleToGenRep, ownershipInformation.GetSecurityStatus());
 
             return new OutpostViewModel(outpost.Name, outpostOwnershipViewModel);
         }

@@ -79,14 +79,32 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
             var faction = new Faction("faction");
             var currentOwners = new Clan("clan", faction, new TimeSpan(), 0);
 
-            var factionsAbleToGenRep = new List<Faction>{new Faction("foo")};
+            var factionsAbleToGenRep = new List<Faction> { new Faction("foo") };
             var outpost = new Outpost(null, null, currentOwners, factionsAbleToGenRep);
 
             var outpostViewModel = outpostViewModelBuilder.Build(outpost);
 
             var outpostOwnershipViewModel = outpostViewModel.OutpostOwnershipViewModel;
 
-            Assert.That(outpostOwnershipViewModel.FactionsAbleToGenRep, Is.EqualTo(new List<string>{"foo"}));
+            Assert.That(outpostOwnershipViewModel.FactionsAbleToGenRep, Is.EqualTo(new List<string> { "foo" }));
+        }
+
+        [Test]
+        public void Sets_security_status()
+        {
+            var outpostViewModelBuilder = new OutpostViewModelBuilder(new TimeFormatter());
+
+            var faction = new Faction("faction");
+            var currentOwners = new Clan("clan", faction, new TimeSpan(), 0);
+
+            var factionsAbleToGenRep = new List<Faction> { new Faction("foo") };
+            var outpost = new Outpost(null, null, currentOwners, factionsAbleToGenRep);
+
+            var outpostViewModel = outpostViewModelBuilder.Build(outpost);
+
+            var outpostOwnershipViewModel = outpostViewModel.OutpostOwnershipViewModel;
+
+            Assert.That(outpostOwnershipViewModel.SecurityStatus, Is.EqualTo("AN/GRA"));
         }
     }
 }

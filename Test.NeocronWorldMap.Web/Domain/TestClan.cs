@@ -38,5 +38,18 @@ namespace Test.NeocronWorldMap.Web.Domain
 
             Assert.That(clan1, Is.EqualTo(clan2), "clans weren't equal");
         }
+
+        [TestCase(0, "AN/GRA")]
+        [TestCase(5, "AE/GRFR")]
+        [TestCase(10, "AFA/GRFA")]
+        [TestCase(15, "AE/GRC")]
+        public void Converts_SecutrityCode_into_status(int code, string expectedStatus)
+        {
+            var clan = new Clan("clan", new Faction("foo"), new TimeSpan(), code);
+
+            var securityStatus = clan.GetSecurityStatus();
+
+            Assert.That(securityStatus, Is.EqualTo(expectedStatus));
+        }
     }
 }

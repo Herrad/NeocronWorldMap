@@ -6,8 +6,9 @@ namespace NeocronWorldMap.Web.ViewModels
 {
     public class OutpostOwnershipViewModel
     {
-        public OutpostOwnershipViewModel(string clanName, string factionName, string factionClass, string timeOwnedFor, IEnumerable<string> factionsAbleToGenRep)
+        public OutpostOwnershipViewModel(string clanName, string factionName, string factionClass, string timeOwnedFor, IEnumerable<string> factionsAbleToGenRep, string securityStatus)
         {
+            SecurityStatus = securityStatus;
             FactionsAbleToGenRep = factionsAbleToGenRep;
             FactionClass = factionClass;
             TimeOwnedFor = timeOwnedFor;
@@ -23,5 +24,6 @@ namespace NeocronWorldMap.Web.ViewModels
 
         public string FactionClass { get; private set; }
         public IEnumerable<string> FactionsAbleToGenRep { get; private set; }
+        public string SecurityStatus { get; private set; }
     }
 }

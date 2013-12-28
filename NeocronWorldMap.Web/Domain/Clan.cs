@@ -26,6 +26,17 @@ namespace NeocronWorldMap.Web.Domain
         public Faction Faction { get; private set; }
         public TimeSpan TimeOwnedFor { get; private set; }
         public int SecurityCode { get; private set; }
+        public string GetSecurityStatus()
+        {
+            switch (SecurityCode)
+            {
+                case 0: return "AN/GRA";
+                case 5: return "AE/GRFR";
+                case 10: return "AFA/GRFA";
+                case 15: return "AE/GRC";
+            }
+            return null;
+        }
 
         public static IOwnOutposts NotApplicable()
         {
