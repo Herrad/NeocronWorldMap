@@ -68,6 +68,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Services\TestFactionRelationsService.cs" />
     <Compile Include="Services\TestOutpostLocations.cs" />
     <Compile Include="Services\TestOutpostService.cs" />
     <Compile Include="Services\TestOwnershipService.cs" />
