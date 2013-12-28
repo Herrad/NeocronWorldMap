@@ -35,13 +35,13 @@ namespace NeocronWorldMap.Web.Domain
                 case 10: return "AFA/GRFA";
                 case 15: return "AE/GRC";
             }
-            return null;
+            return "Not applicable";
         }
 
         public static IOwnOutposts NotApplicable()
         {
             const string notApplicable = "Not applicable";
-            return new Clan(notApplicable, new Faction(notApplicable), new TimeSpan(), 0);
+            return new Clan(notApplicable, new Faction(notApplicable), new TimeSpan(), -1);
         }
 
         public override bool Equals(object obj)

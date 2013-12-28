@@ -43,6 +43,7 @@ namespace Test.NeocronWorldMap.Web.Domain
         [TestCase(5, "AE/GRFR")]
         [TestCase(10, "AFA/GRFA")]
         [TestCase(15, "AE/GRC")]
+        [TestCase(99, "Not applicable")]
         public void Converts_SecutrityCode_into_status(int code, string expectedStatus)
         {
             var clan = new Clan("clan", new Faction("foo"), new TimeSpan(), code);
