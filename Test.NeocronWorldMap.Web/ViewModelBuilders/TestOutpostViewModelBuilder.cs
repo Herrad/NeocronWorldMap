@@ -51,6 +51,7 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
 
         [TestCase(1, "1 day 02:03:04")]
         [TestCase(5, "5 days 02:03:04")]
+        [TestCase(45, "45 days 02:03:04")]
         public void Formats_TimeOwnedFor_correctly(int days, string expectedFormattedTime)
         {
             var timeOwnedFor = new TimeSpan(days, 2, 3, 4);

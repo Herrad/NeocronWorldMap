@@ -86,5 +86,24 @@ namespace Test.NeocronWorldMap.Web.Services
             Assert.That(clan.TimeOwnedFor, Is.GreaterThanOrEqualTo(new TimeSpan(1, 0, 0)));
             Assert.That(clan.TimeOwnedFor, Is.LessThan(new TimeSpan(1, 0, 5)));
         }
+
+        [Test]
+        public void When_a_Clan_conquered_an_outpost_40_days_ago_then_the_time_owned_for_should_be_40_days()
+        {
+            var coordinates = new Coordinates("99", 'x');
+
+            var conquerTime = DateTime.Now.AddDays(-45);
+            var neocronApi = MockRepository.GenerateStub<IConnectToTheNeocronApi>();
+            neocronApi
+                .Stub(x => x.GetOutpostForSector(coordinates.ToSectorCode()))
+                .Return(new ExtendedOutpost { Clan = new Clan(), ConquerTime = conquerTime });
+
+            var ownershipService = new OwnershipService(neocronApi, new FactionFactory());
+
+            var clan = ownershipService.GetCurrentOwners(coordinates);
+
+            Assert.That(clan.TimeOwnedFor, Is.GreaterThanOrEqualTo(new TimeSpan(45, 0, 0, 0)));
+            Assert.That(clan.TimeOwnedFor, Is.LessThan(new TimeSpan(45, 0, 0, 5)));
+        }
     }
 }

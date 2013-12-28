@@ -24,7 +24,7 @@ namespace NeocronWorldMap.Web.ViewModelBuilders
             return new OutpostViewModel(outpost.Name, outpostOwnershipViewModel);
         }
 
-        private string FormatFactionNameForCSSClass(string factionName)
+        private static string FormatFactionNameForCSSClass(string factionName)
         {
             return factionName.ToLower().Replace(' ', '-').Replace(".", string.Empty);
         }
