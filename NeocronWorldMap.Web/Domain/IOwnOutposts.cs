@@ -7,5 +7,6 @@ namespace NeocronWorldMap.Web.Domain
         string Name { get; }
         Faction Faction { get; }
         TimeSpan TimeOwnedFor { get; }
+        int SecurityCode { get; }
     }
 }

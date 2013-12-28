@@ -105,5 +105,34 @@ namespace Test.NeocronWorldMap.Web.Services
             Assert.That(clan.TimeOwnedFor, Is.GreaterThanOrEqualTo(new TimeSpan(45, 0, 0, 0)));
             Assert.That(clan.TimeOwnedFor, Is.LessThan(new TimeSpan(45, 0, 0, 5)));
         }
+
+        [Test]
+        public void Sets_SecurityCode_from_API()
+        {
+            const int expectedSecuritySetting = 1234;
+            var coordinates = new Coordinates("05", 'f');
+
+            var outpost = MockRepository.GenerateStub<IHaveOutpostData>();
+            outpost
+                .Stub(x => x.Zone)
+                .Return(new NeocronZone(coordinates));
+
+            var extendedOutpost = new ExtendedOutpost
+            {
+                Clan = new Clan(),
+                SecuritySetting = expectedSecuritySetting
+            };
+
+            var neocronApi = MockRepository.GenerateStub<IConnectToTheNeocronApi>();
+            neocronApi
+                .Stub(x => x.GetOutpostForSector(coordinates.ToSectorCode()))
+                .Return(extendedOutpost);
+
+            var clanRepository = new OwnershipService(neocronApi, new FactionFactory());
+
+            var currentOwners = clanRepository.GetCurrentOwners(outpost.Zone.Coordinates);
+
+            Assert.That(currentOwners.SecurityCode, Is.EqualTo(expectedSecuritySetting));
+        }
     }
 }

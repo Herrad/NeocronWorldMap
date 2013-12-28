@@ -14,8 +14,9 @@ namespace NeocronWorldMap.Web.Domain
             return (Name != null ? Name.GetHashCode() : 0);
         }
 
-        public Clan(string name, Faction faction, TimeSpan timeOwnedFor)
+        public Clan(string name, Faction faction, TimeSpan timeOwnedFor, int securityCode)
         {
+            SecurityCode = securityCode;
             TimeOwnedFor = timeOwnedFor;
             Name = name;
             Faction = faction;
@@ -24,11 +25,12 @@ namespace NeocronWorldMap.Web.Domain
         public string Name { get; private set; }
         public Faction Faction { get; private set; }
         public TimeSpan TimeOwnedFor { get; private set; }
+        public int SecurityCode { get; private set; }
 
         public static IOwnOutposts NotApplicable()
         {
             const string notApplicable = "Not applicable";
-            return new Clan(notApplicable, new Faction(notApplicable), new TimeSpan());
+            return new Clan(notApplicable, new Faction(notApplicable), new TimeSpan(), 0);
         }
 
         public override bool Equals(object obj)

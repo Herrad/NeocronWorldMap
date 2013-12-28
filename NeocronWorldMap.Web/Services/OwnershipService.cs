@@ -26,7 +26,7 @@ namespace NeocronWorldMap.Web.Services
             var faction = _factionFactory.Build(outpostForSector);
             var timeOwnedFor = GetTimeOwnedFor(outpostForSector);
 
-            return new Clan(name, faction, timeOwnedFor);
+            return new Clan(name, faction, timeOwnedFor, outpostForSector.SecuritySetting);
         }
 
         private static TimeSpan GetTimeOwnedFor(Outpost outpostForSector)

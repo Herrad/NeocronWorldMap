@@ -15,7 +15,7 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
 
             var outpostViewModelBuilder = new OutpostViewModelBuilder(new TimeFormatter());
 
-            var currentOwners = new Clan(null, new Faction("foo faction"), new TimeSpan());
+            var currentOwners = new Clan(null, new Faction("foo faction"), new TimeSpan(), 0);
 
             var outpost = new Outpost(expectedName, null, currentOwners);
 
@@ -35,7 +35,7 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
             var outpostViewModelBuilder = new OutpostViewModelBuilder(new TimeFormatter());
 
             var faction = new Faction(expectedFactionName);
-            var currentOwners = new Clan(expectedClanName, faction, timeOwnedFor);
+            var currentOwners = new Clan(expectedClanName, faction, timeOwnedFor, 0);
 
             var outpost = new Outpost(null, null, currentOwners);
 
@@ -59,7 +59,7 @@ namespace Test.NeocronWorldMap.Web.ViewModelBuilders
             var outpostViewModelBuilder = new OutpostViewModelBuilder(new TimeFormatter());
 
             var faction = new Faction("faction");
-            var currentOwners = new Clan("clan", faction, timeOwnedFor);
+            var currentOwners = new Clan("clan", faction, timeOwnedFor, 0);
 
             var outpost = new Outpost(null, null, currentOwners);
 
