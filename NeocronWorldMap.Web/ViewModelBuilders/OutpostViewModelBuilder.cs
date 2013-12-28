@@ -1,3 +1,5 @@
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using NeocronWorldMap.Web.Domain;
 using NeocronWorldMap.Web.ViewModels;
 
@@ -19,7 +21,9 @@ namespace NeocronWorldMap.Web.ViewModelBuilders
             var timeOwnedFor = _timeFormatter.FormatTime(ownershipInformation.TimeOwnedFor);
 
             var factionClass = FormatFactionNameForCSSClass(ownershipInformation.Faction.Name);
-            var outpostOwnershipViewModel = new OutpostOwnershipViewModel(ownershipInformation.Name, ownershipInformation.Faction.Name, factionClass, timeOwnedFor);
+            var factionsAbleToGenRep = outpost.FactionsAbleToGenRep.Select(x => x.Name);
+
+            var outpostOwnershipViewModel = new OutpostOwnershipViewModel(ownershipInformation.Name, ownershipInformation.Faction.Name, factionClass, timeOwnedFor, factionsAbleToGenRep);
 
             return new OutpostViewModel(outpost.Name, outpostOwnershipViewModel);
         }

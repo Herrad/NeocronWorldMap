@@ -1,9 +1,21 @@
 ﻿@model NeocronWorldMap.Web.ViewModels.OutpostOwnershipViewModel
 
 <div class="owners">
-    <ul class="owner-details @Model.FactionClass text">
-        <li class="clan-name"><h3>@Model.ClanName</h3></li>
+    <ul class="details @Model.FactionClass text">
+        <li><h3>@Model.ClanName</h3></li>
         <li>Faction: @Model.FactionName</li>
         <li>Owned for: @Model.TimeOwnedFor</li>
+    </ul>
+</div>
+
+<div class="owners gen-rep-details">
+    <ul class="details">
+        <li>
+            <h3>Factions able to GenRep here:</h3>
+        </li>
+        @foreach (var faction in @Model.FactionsAbleToGenRep)
+        {
+            <li class="decorate">@faction</li>
+        }
     </ul>
 </div>

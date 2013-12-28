@@ -41,6 +41,7 @@ namespace NeocronWorldMap.Web.Services
                 case ("CityAdmin"): return new List<Faction> { cityAdmin, diamondRealEstate, tangentTechnologies, bioTech, protoPharm };
                 case ("Diamond Real Estate"): return new List<Faction> { cityAdmin, diamondRealEstate, next, tangentTechnologies, tsunamiSyndicate, fallenAngels };
                 case ("N.E.X.T"): return new List<Faction> { diamondRealEstate, next, tangentTechnologies };
+                case ("Tangent Technologies"): return new List<Faction> { cityAdmin, diamondRealEstate, next, cityMercs };
                 case ("BioTech"): return new List<Faction> { cityAdmin, bioTech, protoPharm };
                 case ("ProtoPharm"): return new List<Faction> { cityAdmin, bioTech, protoPharm, blackDragon };
                 case ("Tsunami Syndicate"): return new List<Faction> { diamondRealEstate, tsunamiSyndicate, cityMercs, fallenAngels };
